@@ -1,0 +1,130 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #0D6EFD;
+    padding: 20px;
+}
+
+.login-container {
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    padding: 30px;
+}
+
+.logo {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.logo h1 {
+    color: #000000;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    color: #000000;
+    font-weight: bold;
+}
+
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+
+input[type="email"]:focus,
+input[type="password"]:focus {
+    border-color: #0D6EFD;
+    outline: none;
+}
+
+.captcha-container {
+    margin: 20px 0;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+.captcha-text {
+    margin-bottom: 10px;
+    color: #000000;
+    font-weight: bold;
+}
+
+.btn-login {
+    width: 100%;
+    padding: 12px;
+    background-color: #F19000;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 10px;
+}
+
+.btn-login:hover {
+    background-color: #e08500;
+}
+
+.recaptcha-footer {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 12px;
+    color: #666;
+}
+
+.recaptcha-footer a {
+    color: #666;
+    text-decoration: none;
+}
+
+.recaptcha-footer a:hover {
+    text-decoration: underline;
+}
+
+.professor-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.btn-professor {
+    background-color: transparent;
+    color: #000000;
+    border: none;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.btn-professor:hover {
+    color: #0D6EFD;
+}

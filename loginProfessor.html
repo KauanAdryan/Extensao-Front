@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Professor</title>
+    <link rel="stylesheet" href="css/styleProfessor.css">
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+</head>
+<body>
+    <div class="login-container">
+        <div class="logo">
+            <h1>Área do Professor</h1>
+        </div>
+        
+        <form id="professorLoginForm">
+            <div class="form-group">
+                <label for="professorEmail">E-mail Institucional:</label>
+                <input type="email" id="professorEmail" name="professorEmail" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="professorPassword">Senha:</label>
+                <input type="password" id="professorPassword" name="professorPassword" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="matricula">Matrícula:</label>
+                <input type="text" id="matricula" name="matricula" required>
+            </div>
+            
+            <div class="captcha-container">
+                <div class="captcha-text">Não sou um robô</div>
+                <div class="g-recaptcha" data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"></div>
+            </div>
+            
+            <button type="submit" class="btn-login">Acessar Área Restrita 💡</button>
+        </form>
+        
+        <div class="recaptcha-footer">
+            <a href="https://policies.google.com/privacy" target="_blank">Privacidade</a> - 
+            <a href="https://policies.google.com/terms" target="_blank">Termos</a>
+        </div>
+        
+        <div class="back-container">
+            <button id="backBtn" class="btn-back">← Voltar</button>
+        </div>
+    </div>
+
+    <script src="js/scriptProfessor.js"></script>
+</body>
+</html>

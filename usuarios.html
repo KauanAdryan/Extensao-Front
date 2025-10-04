@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciar Usuários</title>
+    <link rel="stylesheet" href="css/dashboardCoordenador.css">
+    <link rel="stylesheet" href="css/usuarios.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar (mesma do dashboard) -->
+        <div class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="user-photo">
+                    <img src="https://via.placeholder.com/80" alt="Foto do Coordenador" id="userPhoto">
+                </div>
+                <div class="user-info2">
+                    <h3 id="userName">Carlos Oliveira</h3>
+                    <p id="userRole">Coordenador</p>
+                </div>
+                <button class="toggle-btn" id="toggleBtn">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+            </div>
+
+            <nav class="sidebar-nav">
+                <ul>
+                    <li class="nav-item">
+                        <a href="dashboardCoordenador.html">
+                            <i class="fas fa-home"></i>
+                            <span class="nav-text">Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="nav-item active">
+                        <a href="usuarios.html">
+                            <i class="fas fa-user-tie"></i>
+                            <span class="nav-text">Usuários</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="materias.html">
+                            <i class="fas fa-book"></i>
+                            <span class="nav-text">Matérias</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="turmas.html">
+                            <i class="fas fa-users"></i>
+                            <span class="nav-text">Turmas</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="horarios.html">
+                            <i class="fas fa-clock"></i>
+                            <span class="nav-text">Horários</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="profile-menu">
+                    <button class="profile-btn" id="profileBtn">
+                        <i class="fas fa-user-cog"></i>
+                        <span class="profile-text">Meu Perfil</span>
+                    </button>
+                    <div class="profile-dropdown" id="profileDropdown">
+                        <a href="#" class="dropdown-item">
+                            <i class="fas fa-edit"></i>
+                            Editar Perfil
+                        </a>
+                        <a href="#" class="dropdown-item">
+                            <i class="fas fa-cog"></i>
+                            Configurações
+                        </a>
+                        <a href="#" class="dropdown-item logout" id="logoutBtn">
+                            <i class="fas fa-sign-out-alt"></i>
+                            Sair
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content" id="mainContent">
+            <div class="content-header">
+                <h1>Gerenciar Usuários</h1>
+                <div class="breadcrumb">
+                    <span>Home</span> / <span>Usuários</span>
+                </div>
+            </div>
+
+            <div class="content-body">
+                <!-- Barra de Pesquisa e Filtros -->
+                <div class="search-section">
+                    <div class="search-bar">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="searchInput" placeholder="Pesquisar usuários por nome...">
+                    </div>
+                    <div class="filters">
+                        <select id="filterType">
+                            <option value="all">Todos os Tipos</option>
+                            <option value="professor">Professores</option>
+                            <option value="coordenador">Coordenadores</option>
+                        </select>
+                        <select id="filterStatus">
+                            <option value="all">Todos os Status</option>
+                            <option value="active">Ativos</option>
+                            <option value="inactive">Inativos</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Lista de Usuários -->
+                <div class="users-container">
+                    <div class="users-header">
+                        <h2>Usuários Cadastrados</h2>
+                        <button class="btn-primary" id="addUserBtn">
+                            <i class="fas fa-plus"></i>
+                            Cadastrar Usuário
+                        </button>
+                    </div>
+
+                    <div class="users-list" id="usersList">
+                        <!-- Usuários serão carregados aqui via JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Cadastro/Edição -->
+    <div class="modal" id="userModal">
+        <div class="modal-content large-modal">
+            <div class="modal-header">
+                <h3 id="modalTitle">Cadastrar Usuário</h3>
+                <button class="close-btn" id="closeModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="userForm">
+                    <input type="hidden" id="userId">
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="userNameInput">Nome Completo *</label>
+                            <input type="text" id="userNameInput" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="userEmail">E-mail *</label>
+                            <input type="email" id="userEmail" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="userType">Tipo de Usuário *</label>
+                            <select id="userType" required>
+                                <option value="">Selecione...</option>
+                                <option value="professor">Professor</option>
+                                <option value="coordenador">Coordenador</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="userMatricula">Matrícula *</label>
+                            <input type="text" id="userMatricula" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="userPhone">Telefone</label>
+                            <input type="tel" id="userPhone">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="userStatus">Status</label>
+                            <select id="userStatus">
+                                <option value="active">Ativo</option>
+                                <option value="inactive">Inativo</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Seleção de Matérias (apenas para professores) -->
+                    <div class="form-group" id="materiasSection" style="display: none;">
+                        <label>Matérias Lecionadas</label>
+                        <div class="materias-grid" id="materiasGrid">
+                            <!-- Matérias serão carregadas aqui via JavaScript -->
+                        </div>
+                    </div>
+
+                    <div class="form-row" id="passwordFields">
+                        <div class="form-group">
+                            <label for="userPassword">Senha *</label>
+                            <input type="password" id="userPassword" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="confirmPassword">Confirmar Senha *</label>
+                            <input type="password" id="confirmPassword" required>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-secondary" id="cancelBtn">Cancelar</button>
+                        <button type="submit" class="btn btn-primary">Salvar Usuário</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Confirmação de Inativação -->
+    <div class="modal" id="confirmModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Confirmar Ação</h3>
+                <button class="close-btn" id="closeConfirmModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p id="confirmMessage">Tem certeza que deseja inativar este usuário?</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" id="cancelConfirm">Cancelar</button>
+                <button class="btn btn-primary" id="confirmAction">Confirmar</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/dashboardCoordenador.js"></script>
+    <script src="js/usuarios.js"></script>
+</body>
+</html>

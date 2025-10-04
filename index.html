@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="css/styleLogin.css">
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+</head>
+<body>
+    <div class="login-container">
+        <div class="logo">
+            <h1>Coordenador</h1>
+        </div>
+        
+        <form id="loginForm">
+            <div class="form-group">
+                <label for="email">E-mail:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="password">Senha:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            
+            <div class="captcha-container">
+                <div class="captcha-text">Não sou um robô</div>
+                <div class="g-recaptcha" data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"></div>
+            </div>
+            
+            <button type="submit" class="btn-login">Accessar 💡</button>
+        </form>
+        
+        <div class="professor-container">
+            <button id="professorBtn" class="btn-professor">Professor</button>
+        </div>
+    </div>
+
+    <script src="js/scriptLogin.js"></script>
+</body>
+</html>
