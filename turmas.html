@@ -16,8 +16,8 @@
                 <div class="user-photo">
                     <img src="https://via.placeholder.com/80" alt="Foto do Coordenador" id="userPhoto">
                 </div>
-                <div class="user-info2">
-                    <h3 id="userName">Carlos Oliveira</h3>
+                <div class="user-info">
+                    <h3 id="userName">Carregando...</h3>
                     <p id="userRole">Coordenador</p>
                 </div>
                 <button class="toggle-btn" id="toggleBtn">
@@ -67,15 +67,11 @@
                         <span class="profile-text">Meu Perfil</span>
                     </button>
                     <div class="profile-dropdown" id="profileDropdown">
-                        <a href="#" class="dropdown-item">
+                        <a href="perfil.html" class="dropdown-item">
                             <i class="fas fa-edit"></i>
                             Editar Perfil
                         </a>
-                        <a href="#" class="dropdown-item">
-                            <i class="fas fa-cog"></i>
-                            Configurações
-                        </a>
-                        <a href="#" class="dropdown-item logout" id="logoutBtn">
+                        <a href="index.html" class="dropdown-item logout" id="logoutBtn">
                             <i class="fas fa-sign-out-alt"></i>
                             Sair
                         </a>
@@ -125,8 +121,9 @@
                         </button>
                     </div>
 
-                    <div class="turmas-list" id="turmasList">
-                        <!-- Turmas serão carregadas aqui via JavaScript -->
+                    <div class="turmas-details" id="turmasList">
+
+                        </div>
                     </div>
                 </div>
             </div>
@@ -154,9 +151,9 @@
                             <label for="turmaSerie">Série *</label>
                             <select id="turmaSerie" required>
                                 <option value="">Selecione...</option>
-                                <option value="1">1º Ano</option>
-                                <option value="2">2º Ano</option>
-                                <option value="3">3º Ano</option>
+                                <option value="1º Ano">1º Ano</option>
+                                <option value="2º Ano">2º Ano</option>
+                                <option value="3º Ano">3º Ano</option>
                             </select>
                         </div>
                     </div>
@@ -181,13 +178,6 @@
                     <div class="form-group">
                         <label for="turmaSala">Sala</label>
                         <input type="text" id="turmaSala" placeholder="Ex: Sala 101">
-                    </div>
-
-                    <div class="form-group">
-                        <label>Matérias da Turma</label>
-                        <div class="materias-grid" id="materiasGrid">
-                            <!-- Matérias serão carregadas aqui via JavaScript -->
-                        </div>
                     </div>
 
                     <div class="form-group">

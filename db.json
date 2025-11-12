@@ -1,0 +1,98 @@
+{
+  "usuario": [
+    {
+      "id": "1",
+      "nome": "Miguel",
+      "senha": "1234Miguel!",
+      "email": "miguelmartoni@gmail.com",
+      "status": "Ativo",
+      "cargo": "Coordenador",
+      "tipousuario": "COORD001",
+      "telefone": "11999999999",
+      "materias": []
+    },
+    {
+      "id": "2",
+      "nome": "Ana Silva",
+      "senha": "123456",
+      "email": "coordenador@escola.com",
+      "status": "Inativo",
+      "cargo": "Coordenadora",
+      "tipousuario": "COORD002",
+      "telefone": 11988888888
+    },
+    {
+      "id": "3",
+      "nome": "Carlos Oliveira",
+      "senha": "prof123",
+      "email": "professor@escola.com",
+      "status": "Ativo",
+      "cargo": "Professor",
+      "tipousuario": "PROF001",
+      "telefone": "11977777777",
+      "materias": [
+        2
+      ]
+    }
+  ],
+  "materia": [
+    {
+      "id": "1",
+      "nome": "Matemática",
+      "descricao": "exemplo",
+      "status": "Ativo"
+    },
+    {
+      "id": "2",
+      "nome": "Português",
+      "descricao": "exemplo",
+      "status": "Ativo"
+    },
+    {
+      "id": "3",
+      "nome": "Geografia",
+      "descricao": "exemplo",
+      "status": "Ativo"
+    },
+    {
+      "id": "4",
+      "nome": "História",
+      "descricao": "exemplo",
+      "status": "Inativo"
+    }
+  ],
+  "turma": [
+    {
+      "id": "1",
+      "nome": "Turma A",
+      "serie": "1º Ano",
+      "qtdalunos": 30,
+      "sala": "Sala 101",
+      "status": "Ativo"
+    },
+    {
+      "id": "2",
+      "nome": "Turma B",
+      "serie": "2º Ano",
+      "qtdalunos": 18,
+      "sala": "Sala 308",
+      "status": "Ativo"
+    },
+    {
+      "id": "3",
+      "nome": "Turma C",
+      "serie": "3º Ano",
+      "qtdalunos": 36,
+      "sala": "Sala 209",
+      "status": "Ativo"
+    },
+    {
+      "id": "4",
+      "nome": "Turma D",
+      "serie": "4º Ano",
+      "qtdalunos": 27,
+      "sala": "Sala 203",
+      "status": "Inativo"
+    }
+  ]
+}

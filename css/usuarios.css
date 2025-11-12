@@ -105,7 +105,7 @@
 
 /* Lista de Usuários */
 .users-list {
-    max-height: 600px;
+    max-height: 500px;
     overflow-y: auto;
 }
 
@@ -449,5 +449,100 @@
     .btn-edit, .btn-inactivate {
         width: 100%;
         justify-content: center;
+    }
+}
+
+/* Loading States */
+.loading-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 30px;
+    color: #666;
+    text-align: center;
+}
+
+.loading-spinner-large {
+    width: 40px;
+    height: 40px;
+    border: 3px solid #f3f3f3;
+    border-top: 3px solid #0D6EFD;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 15px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Error State */
+.error-state {
+    text-align: center;
+    padding: 40px 30px;
+    color: #dc3545;
+    background: #f8d7da;
+    border-radius: 8px;
+    border: 1px solid #f5c6cb;
+    margin: 20px;
+}
+
+.error-state i {
+    font-size: 32px;
+    margin-bottom: 15px;
+}
+
+.error-state p {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+/* User card improvements */
+.user-card {
+    padding: 20px 30px;
+    border-bottom: 1px solid #f0f0f0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.user-card:hover {
+    background: #f8f9fa;
+    transform: translateX(5px);
+}
+
+.user-meta {
+    display: flex;
+    gap: 15px;
+    font-size: 13px;
+    color: #666;
+    flex-wrap: wrap;
+}
+
+.user-meta span {
+    display: inline-flex;
+    align-items: center;
+}
+
+/* Responsive improvements */
+@media (max-width: 768px) {
+    .loading-state {
+        padding: 40px 20px;
+    }
+    
+    .loading-spinner-large {
+        width: 32px;
+        height: 32px;
+    }
+    
+    .user-meta {
+        gap: 10px;
+    }
+    
+    .user-meta span {
+        font-size: 12px;
     }
 }

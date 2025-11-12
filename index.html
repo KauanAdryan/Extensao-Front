@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Login - Coordenador</title>
     <link rel="stylesheet" href="css/styleLogin.css">
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
@@ -29,7 +29,12 @@
                 <div class="g-recaptcha" data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"></div>
             </div>
             
-            <button type="submit" class="btn-login">Accessar 💡</button>
+            <button type="submit" class="btn-login" id="loginBtn">
+                <span class="btn-text">Accessar 💡</span>
+                <div class="loading-spinner" style="display: none;"></div>
+            </button>
+            
+            <div id="errorMessage" class="error-message" style="display: none;"></div>
         </form>
         
         <div class="professor-container">

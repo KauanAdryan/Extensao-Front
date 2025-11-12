@@ -1,0 +1,35 @@
+{
+    "usuario":[
+        {
+            "id": 1,
+            "nome": "Miguel",
+            "senha": "1234Miguel!",
+            "email": "miguelmartoni@gmail.com",
+            "status": "Ativo",
+            "cargo": "Professor",
+            "tipousuario": "PROF001",
+            "telefone": 11999999999
+        }
+    ],
+
+    "materia":[
+        {
+        "id": 1,
+        "nome": "Matemática",
+        "descricao": "exemplo",
+        "status": "Ativo"
+        }
+    ],
+
+    "turma":[
+        {
+            "nome": "Turma A",
+            "serie": "1º Ano",
+            "qtdalunos": 30,
+            "sala": "Sala 101",
+            "status": "Ativo"
+        }
+    ]
+}
+
+

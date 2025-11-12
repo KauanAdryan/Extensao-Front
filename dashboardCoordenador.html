@@ -16,7 +16,7 @@
                     <img src="https://via.placeholder.com/80" alt="Foto do Coordenador" id="userPhoto">
                 </div>
                 <div class="user-info">
-                    <h3 id="userName">Carlos Oliveira</h3>
+                    <h3 id="userName">Carregando...</h3>
                     <p id="userRole">Coordenador</p>
                 </div>
                 <button class="toggle-btn" id="toggleBtn">
@@ -66,19 +66,11 @@
                         <span class="profile-text">Meu Perfil</span>
                     </button>
                     <div class="profile-dropdown" id="profileDropdown">
-                        <a href="#" class="dropdown-item">
+                        <a href="perfil.html" class="dropdown-item">
                             <i class="fas fa-edit"></i>
                             Editar Perfil
                         </a>
-                        <a href="#" class="dropdown-item">
-                            <i class="fas fa-cog"></i>
-                            Configurações
-                        </a>
-                        <a href="#" class="dropdown-item">
-                            <i class="fas fa-bell"></i>
-                            Notificações
-                        </a>
-                        <a href="#" class="dropdown-item logout" id="logoutBtn">
+                        <a href="index.html" class="dropdown-item logout" id="logoutBtn">
                             <i class="fas fa-sign-out-alt"></i>
                             Sair
                         </a>
@@ -98,7 +90,7 @@
 
             <div class="content-body">
                 <div class="welcome-card">
-                    <h2>Bem-vindo, <span id="welcomeName">Carlos</span>!</h2>
+                    <h2>Bem-vindo, <span id="welcomeName">Carregando...</span>!</h2>
                     <p>Esta é a sua área de coordenação. Aqui você pode gerenciar professores, turmas, horários e visualizar relatórios do sistema.</p>
                 </div>
 
@@ -109,8 +101,8 @@
                         </div>
                         <div class="stat-info">
                             <h3>Professores</h3>
-                            <span class="stat-number">24</span>
-                            <span class="stat-change">+2 este mês</span>
+                            <span class="stat-number" id="totalProfessores">0</span>
+                            <span class="stat-change" id="statusProfessores">Carregando...</span>
                         </div>
                     </div>
                     <div class="stat-card">
@@ -119,8 +111,8 @@
                         </div>
                         <div class="stat-info">
                             <h3>Turmas</h3>
-                            <span class="stat-number">18</span>
-                            <span class="stat-change">+1 esta semana</span>
+                            <span class="stat-number" id="totalTurmas">0</span>
+                            <span class="stat-change" id="statusTurmas">Carregando...</span>
                         </div>
                     </div>
                     <div class="stat-card">
@@ -129,18 +121,18 @@
                         </div>
                         <div class="stat-info">
                             <h3>Alunos</h3>
-                            <span class="stat-number">486</span>
-                            <span class="stat-change">+15 hoje</span>
+                            <span class="stat-number" id="totalAlunos">0</span>
+                            <span class="stat-change" id="statusAlunos">Carregando...</span>
                         </div>
                     </div>
                     <div class="stat-card">
                         <div class="stat-icon" style="background: #6f42c1;">
-                            <i class="fas fa-calendar-check"></i>
+                            <i class="fas fa-book"></i>
                         </div>
                         <div class="stat-info">
-                            <h3>Aulas Hoje</h3>
-                            <span class="stat-number">32</span>
-                            <span class="stat-change">2 em andamento</span>
+                            <h3>Matérias</h3>
+                            <span class="stat-number" id="totalMaterias">0</span>
+                            <span class="stat-change" id="statusMaterias">Carregando...</span>
                         </div>
                     </div>
                 </div>
@@ -153,58 +145,9 @@
                                 <a href="usuarios.html" class="view-all">Ver todos</a>
                             </div>
                             <div class="card-body">
-                                <div class="list-item">
-                                    <div class="list-avatar">AM</div>
-                                    <div class="list-info">
-                                        <h4>Ana Mendes</h4>
-                                        <p>Matemática</p>
-                                    </div>
-                                    <span class="status active">Ativa</span>
-                                </div>
-                                <div class="list-item">
-                                    <div class="list-avatar">PS</div>
-                                    <div class="list-info">
-                                        <h4>Paulo Silva</h4>
-                                        <p>História</p>
-                                    </div>
-                                    <span class="status active">Ativo</span>
-                                </div>
-                                <div class="list-item">
-                                    <div class="list-avatar">MF</div>
-                                    <div class="list-info">
-                                        <h4>Mariana Fernandes</h4>
-                                        <p>Ciências</p>
-                                    </div>
-                                    <span class="status inactive">Ausente</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="card">
-                            <div class="card-header">
-                                <h3>Próximos Eventos</h3>
-                                <a href="#" class="view-all">Ver calendário</a>
-                            </div>
-                            <div class="card-body">
-                                <div class="event-item">
-                                    <div class="event-date">
-                                        <span class="day">15</span>
-                                        <span class="month">MAR</span>
-                                    </div>
-                                    <div class="event-info">
-                                        <h4>Reunião Pedagógica</h4>
-                                        <p>14:00 - Sala de Reuniões</p>
-                                    </div>
-                                </div>
-                                <div class="event-item">
-                                    <div class="event-date">
-                                        <span class="day">18</span>
-                                        <span class="month">MAR</span>
-                                    </div>
-                                    <div class="event-info">
-                                        <h4>Entrega de Planejamentos</h4>
-                                        <p>Todo o dia</p>
-                                    </div>
+                                <div id="professoresList" class="loading-state">
+                                    <div class="loading-spinner-large"></div>
+                                    <p>Carregando professores...</p>
                                 </div>
                             </div>
                         </div>
@@ -213,33 +156,13 @@
                     <div class="content-column">
                         <div class="card">
                             <div class="card-header">
-                                <h3>Aulas em Andamento</h3>
-                                <a href="#" class="view-all">Ver horários</a>
+                                <h3>Turmas Ativas</h3>
+                                <a href="turmas.html" class="view-all">Ver todas</a>
                             </div>
                             <div class="card-body">
-                                <div class="class-item">
-                                    <div class="class-time">08:00 - 09:30</div>
-                                    <div class="class-info">
-                                        <h4>Matemática - 8ºA</h4>
-                                        <p>Prof. Ana Mendes</p>
-                                    </div>
-                                    <span class="class-room">Sala 12</span>
-                                </div>
-                                <div class="class-item">
-                                    <div class="class-time">09:30 - 11:00</div>
-                                    <div class="class-info">
-                                        <h4>História - 9ºB</h4>
-                                        <p>Prof. Paulo Silva</p>
-                                    </div>
-                                    <span class="class-room">Sala 08</span>
-                                </div>
-                                <div class="class-item">
-                                    <div class="class-time">11:00 - 12:30</div>
-                                    <div class="class-info">
-                                        <h4>Ciências - 7ºA</h4>
-                                        <p>Prof. Mariana Fernandes</p>
-                                    </div>
-                                    <span class="class-room">Lab. Ciências</span>
+                                <div id="turmasList" class="loading-state">
+                                    <div class="loading-spinner-large"></div>
+                                    <p>Carregando turmas...</p>
                                 </div>
                             </div>
                         </div>
@@ -250,19 +173,19 @@
                             </div>
                             <div class="card-body">
                                 <div class="quick-actions">
-                                    <button class="quick-btn">
+                                    <button class="quick-btn" onclick="window.location.href='turmas.html'">
                                         <i class="fas fa-plus"></i>
                                         Nova Turma
                                     </button>
-                                    <button class="quick-btn">
+                                    <button class="quick-btn" onclick="window.location.href='usuarios.html'">
                                         <i class="fas fa-user-plus"></i>
                                         Adicionar Professor
                                     </button>
-                                    <button class="quick-btn">
+                                    <button class="quick-btn" onclick="window.location.href='horarios.html'">
                                         <i class="fas fa-clock"></i>
                                         Gerar Horários
                                     </button>
-                                    <button class="quick-btn">
+                                    <button class="quick-btn" onclick="gerarRelatorio()">
                                         <i class="fas fa-file-pdf"></i>
                                         Relatório Mensal
                                     </button>
