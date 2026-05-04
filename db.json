@@ -1,38 +1,78 @@
-﻿{
+{
   "usuario": [
     {
       "id": "1",
-      "nome": "Miguel",
+      "nome": "Miguel Coordenador",
       "senha": "1234Miguel!",
       "email": "miguelmartoni@gmail.com",
       "status": "Ativo",
       "cargo": "Coordenador",
       "tipousuario": "COORD001",
       "telefone": "11999999999",
-      "materias": []
+      "materias": [],
+      "disponibilidade": {}
     },
     {
       "id": "2",
-      "nome": "Ana Silva",
-      "senha": "123456",
-      "email": "coordenador@escola.com",
-      "status": "Inativo",
-      "cargo": "Coordenadora",
-      "tipousuario": "COORD002",
-      "telefone": "11988888888",
-      "materias": []
+      "nome": "Prof. Introdução à Programação",
+      "senha": "prof123",
+      "email": "prof_introdu.o.programa.o@faculdade.com",
+      "status": "Ativo",
+      "cargo": "Professor",
+      "tipousuario": "PROF002",
+      "telefone": "1199000002",
+      "materias": [
+        "1"
+      ],
+      "disponibilidade": {
+        "segunda": {
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        },
+        "terca": {
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        },
+        "quarta": {
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        },
+        "quinta": {
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        },
+        "sexta": {
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        }
+      }
     },
     {
       "id": "3",
-      "nome": "Maria Pereira",
-      "senha": "maria123",
-      "email": "maria@escola.com",
+      "nome": "Prof. Programação Orientada a Objetos",
+      "senha": "prof123",
+      "email": "prof_programa.o.orientada.a.objetos@faculdade.com",
       "status": "Ativo",
       "cargo": "Professor",
-      "tipousuario": "PROF001",
-      "telefone": "11944444444",
+      "tipousuario": "PROF003",
+      "telefone": "1199000003",
       "materias": [
-        1
+        "2"
       ],
       "disponibilidade": {
         "segunda": {
@@ -74,15 +114,15 @@
     },
     {
       "id": "4",
-      "nome": "Carlos Oliveira",
+      "nome": "Prof. Desenvolvimento Web",
       "senha": "prof123",
-      "email": "professor@escola.com",
+      "email": "prof_desenvolvimento.web@faculdade.com",
       "status": "Ativo",
       "cargo": "Professor",
-      "tipousuario": "PROF002",
-      "telefone": "11977777777",
+      "tipousuario": "PROF004",
+      "telefone": "1199000004",
       "materias": [
-        2
+        "3"
       ],
       "disponibilidade": {
         "segunda": {
@@ -124,15 +164,15 @@
     },
     {
       "id": "5",
-      "nome": "JoÃ£o Santos",
-      "senha": "joao123",
-      "email": "joao@escola.com",
+      "nome": "Prof. Desenvolvimento Back-end",
+      "senha": "prof123",
+      "email": "prof_desenvolvimento.back.end@faculdade.com",
       "status": "Ativo",
       "cargo": "Professor",
-      "tipousuario": "PROF003",
-      "telefone": "11955555555",
+      "tipousuario": "PROF005",
+      "telefone": "1199000005",
       "materias": [
-        12
+        "4"
       ],
       "disponibilidade": {
         "segunda": {
@@ -174,15 +214,15 @@
     },
     {
       "id": "6",
-      "nome": "ClÃ¡udio Nunes",
-      "senha": "claudio123",
-      "email": "claudio@escola.com",
+      "nome": "Prof. Desenvolvimento Front-end",
+      "senha": "prof123",
+      "email": "prof_desenvolvimento.front.end@faculdade.com",
       "status": "Ativo",
       "cargo": "Professor",
-      "tipousuario": "PROF004",
-      "telefone": "11930303030",
+      "tipousuario": "PROF006",
+      "telefone": "1199000006",
       "materias": [
-        12
+        "5"
       ],
       "disponibilidade": {
         "segunda": {
@@ -224,60 +264,65 @@
     },
     {
       "id": "7",
-      "nome": "PatrÃ­cia Matos",
-      "senha": "pat123",
-      "email": "patricia@escola.com",
+      "nome": "Prof. Desenvolvimento Full-stack",
+      "senha": "prof123",
+      "email": "prof_desenvolvimento.full.stack@faculdade.com",
       "status": "Ativo",
       "cargo": "Professor",
-      "tipousuario": "PROF005",
-      "telefone": "11923232323",
+      "tipousuario": "PROF007",
+      "telefone": "1199000007",
       "materias": [
-        13
+        "6"
       ],
       "disponibilidade": {
         "segunda": {
-          "13:15": "Sim",
-          "14:15": "Sim",
-          "15:15": "Sim",
-          "16:15": "Sim"
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
         },
         "terca": {
-          "13:15": "Sim",
-          "14:15": "Sim",
-          "15:15": "Sim",
-          "16:15": "Sim"
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
         },
         "quarta": {
-          "13:15": "Sim",
-          "14:15": "Sim",
-          "15:15": "Sim",
-          "16:15": "Sim"
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
         },
         "quinta": {
-          "13:15": "Sim",
-          "14:15": "Sim",
-          "15:15": "Sim",
-          "16:15": "Sim"
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
         },
         "sexta": {
-          "13:15": "Sim",
-          "14:15": "Sim",
-          "15:15": "Sim",
-          "16:15": "Sim"
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
         }
       }
     },
     {
       "id": "8",
-      "nome": "Elaine Costa",
-      "senha": "elaine123",
-      "email": "elaine@escola.com",
+      "nome": "Prof. Codificação Segura",
+      "senha": "prof123",
+      "email": "prof_codifica.o.segura@faculdade.com",
       "status": "Ativo",
       "cargo": "Professor",
-      "tipousuario": "PROF006",
-      "telefone": "11920202020",
+      "tipousuario": "PROF008",
+      "telefone": "1199000008",
       "materias": [
-        13
+        "7"
       ],
       "disponibilidade": {
         "segunda": {
@@ -319,15 +364,15 @@
     },
     {
       "id": "9",
-      "nome": "Fernanda Dias",
-      "senha": "fer123",
-      "email": "fernanda@escola.com",
+      "nome": "Prof. Desenvolvimento para Sistemas Embarcados",
+      "senha": "prof123",
+      "email": "prof_desenvolvimento.para.sistemas.embarcados@faculdade.com",
       "status": "Ativo",
       "cargo": "Professor",
-      "tipousuario": "PROF007",
-      "telefone": "11966666666",
+      "tipousuario": "PROF009",
+      "telefone": "1199000009",
       "materias": [
-        7
+        "8"
       ],
       "disponibilidade": {
         "segunda": {
@@ -369,15 +414,15 @@
     },
     {
       "id": "10",
-      "nome": "Rafael Moura",
-      "senha": "raf123",
-      "email": "rafael@escola.com",
+      "nome": "Prof. Desenvolvimento para Dispositivos Móveis",
+      "senha": "prof123",
+      "email": "prof_desenvolvimento.para.dispositivos.m.veis@faculdade.com",
       "status": "Ativo",
       "cargo": "Professor",
-      "tipousuario": "PROF008",
-      "telefone": "11977777770",
+      "tipousuario": "PROF010",
+      "telefone": "1199000010",
       "materias": [
-        8
+        "9"
       ],
       "disponibilidade": {
         "segunda": {
@@ -419,15 +464,15 @@
     },
     {
       "id": "11",
-      "nome": "Helena Brito",
-      "senha": "helena123",
-      "email": "helena@escola.com",
+      "nome": "Prof. Engenharia de Requisitos",
+      "senha": "prof123",
+      "email": "prof_engenharia.de.requisitos@faculdade.com",
       "status": "Ativo",
       "cargo": "Professor",
-      "tipousuario": "PROF009",
-      "telefone": "11911111111",
+      "tipousuario": "PROF011",
+      "telefone": "1199000011",
       "materias": [
-        9
+        "10"
       ],
       "disponibilidade": {
         "segunda": {
@@ -469,15 +514,15 @@
     },
     {
       "id": "12",
-      "nome": "SÃ©rgio Prado",
-      "senha": "sergio123",
-      "email": "sergio@escola.com",
+      "nome": "Prof. Modelagem de Dados",
+      "senha": "prof123",
+      "email": "prof_modelagem.de.dados@faculdade.com",
       "status": "Ativo",
       "cargo": "Professor",
-      "tipousuario": "PROF010",
-      "telefone": "11942424242",
+      "tipousuario": "PROF012",
+      "telefone": "1199000012",
       "materias": [
-        10
+        "11"
       ],
       "disponibilidade": {
         "segunda": {
@@ -519,15 +564,15 @@
     },
     {
       "id": "13",
-      "nome": "Carla Lima",
-      "senha": "carla123",
-      "email": "carla@escola.com",
+      "nome": "Prof. Análise Orientada a Objetos",
+      "senha": "prof123",
+      "email": "prof_an.lise.orientada.a.objetos@faculdade.com",
       "status": "Ativo",
       "cargo": "Professor",
-      "tipousuario": "PROF011",
-      "telefone": "11990909090",
+      "tipousuario": "PROF013",
+      "telefone": "1199000013",
       "materias": [
-        11
+        "12"
       ],
       "disponibilidade": {
         "segunda": {
@@ -569,15 +614,15 @@
     },
     {
       "id": "14",
-      "nome": "Renata Costa",
-      "senha": "renata123",
-      "email": "renata@escola.com",
+      "nome": "Prof. UX/UI Design de Sistemas",
+      "senha": "prof123",
+      "email": "prof_ux.ui.design.de.sistemas@faculdade.com",
       "status": "Ativo",
       "cargo": "Professor",
-      "tipousuario": "PROF012",
-      "telefone": "11960606060",
+      "tipousuario": "PROF014",
+      "telefone": "1199000014",
       "materias": [
-        5
+        "13"
       ],
       "disponibilidade": {
         "segunda": {
@@ -619,15 +664,15 @@
     },
     {
       "id": "15",
-      "nome": "Bruno Almeida",
-      "senha": "bruno123",
-      "email": "bruno@escola.com",
+      "nome": "Prof. Arquitetura de Software",
+      "senha": "prof123",
+      "email": "prof_arquitetura.de.software@faculdade.com",
       "status": "Ativo",
       "cargo": "Professor",
-      "tipousuario": "PROF013",
-      "telefone": "11945454545",
+      "tipousuario": "PROF015",
+      "telefone": "1199000015",
       "materias": [
-        6
+        "14"
       ],
       "disponibilidade": {
         "segunda": {
@@ -669,15 +714,15 @@
     },
     {
       "id": "16",
-      "nome": "Mariana Torres",
-      "senha": "mariana123",
-      "email": "mariana@escola.com",
+      "nome": "Prof. Qualidade e Testes de Software",
+      "senha": "prof123",
+      "email": "prof_qualidade.e.testes.de.software@faculdade.com",
       "status": "Ativo",
       "cargo": "Professor",
-      "tipousuario": "PROF014",
-      "telefone": "11981818181",
+      "tipousuario": "PROF016",
+      "telefone": "1199000016",
       "materias": [
-        4
+        "15"
       ],
       "disponibilidade": {
         "segunda": {
@@ -719,15 +764,15 @@
     },
     {
       "id": "17",
-      "nome": "Lilian Ramos",
-      "senha": "lilian123",
-      "email": "lilian@escola.com",
+      "nome": "Prof. Engenharia de Software",
+      "senha": "prof123",
+      "email": "prof_engenharia.de.software@faculdade.com",
       "status": "Ativo",
       "cargo": "Professor",
-      "tipousuario": "PROF015",
-      "telefone": "11912121212",
+      "tipousuario": "PROF017",
+      "telefone": "1199000017",
       "materias": [
-        3
+        "16"
       ],
       "disponibilidade": {
         "segunda": {
@@ -766,124 +811,1259 @@
           "12:15": "Sim"
         }
       }
+    },
+    {
+      "id": "18",
+      "nome": "Prof. Introdução à Computação",
+      "senha": "prof123",
+      "email": "prof_introdu.o.computa.o@faculdade.com",
+      "status": "Ativo",
+      "cargo": "Professor",
+      "tipousuario": "PROF018",
+      "telefone": "1199000018",
+      "materias": [
+        "17"
+      ],
+      "disponibilidade": {
+        "segunda": {
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        },
+        "terca": {
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        },
+        "quarta": {
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        },
+        "quinta": {
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        },
+        "sexta": {
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        }
+      }
+    },
+    {
+      "id": "19",
+      "nome": "Prof. Sistemas de Gerenciamento de Banco de Dados",
+      "senha": "prof123",
+      "email": "prof_sistemas.de.gerenciamento.de.banco.de.dados@faculdade.com",
+      "status": "Ativo",
+      "cargo": "Professor",
+      "tipousuario": "PROF019",
+      "telefone": "1199000019",
+      "materias": [
+        "18"
+      ],
+      "disponibilidade": {
+        "segunda": {
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        },
+        "terca": {
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        },
+        "quarta": {
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        },
+        "quinta": {
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        },
+        "sexta": {
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        }
+      }
+    },
+    {
+      "id": "20",
+      "nome": "Prof. Tecnologias e Sistemas de Informação Gerencial",
+      "senha": "prof123",
+      "email": "prof_tecnologias.e.sistemas.de.informa.o.gerencial@faculdade.com",
+      "status": "Ativo",
+      "cargo": "Professor",
+      "tipousuario": "PROF020",
+      "telefone": "1199000020",
+      "materias": [
+        "19"
+      ],
+      "disponibilidade": {
+        "segunda": {
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        },
+        "terca": {
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        },
+        "quarta": {
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        },
+        "quinta": {
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        },
+        "sexta": {
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        }
+      }
+    },
+    {
+      "id": "21",
+      "nome": "Prof. Cloud & ITOps",
+      "senha": "prof123",
+      "email": "prof_cloud.itops@faculdade.com",
+      "status": "Ativo",
+      "cargo": "Professor",
+      "tipousuario": "PROF021",
+      "telefone": "1199000021",
+      "materias": [
+        "20"
+      ],
+      "disponibilidade": {
+        "segunda": {
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        },
+        "terca": {
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        },
+        "quarta": {
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        },
+        "quinta": {
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        },
+        "sexta": {
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        }
+      }
+    },
+    {
+      "id": "22",
+      "nome": "Prof. Gerenciamento de Projetos de Software",
+      "senha": "prof123",
+      "email": "prof_gerenciamento.de.projetos.de.software@faculdade.com",
+      "status": "Ativo",
+      "cargo": "Professor",
+      "tipousuario": "PROF022",
+      "telefone": "1199000022",
+      "materias": [
+        "21"
+      ],
+      "disponibilidade": {
+        "segunda": {
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        },
+        "terca": {
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        },
+        "quarta": {
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        },
+        "quinta": {
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        },
+        "sexta": {
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        }
+      }
+    },
+    {
+      "id": "23",
+      "nome": "Prof. Tópicos Especiais em ADS",
+      "senha": "prof123",
+      "email": "prof_t.picos.especiais.em.ads@faculdade.com",
+      "status": "Ativo",
+      "cargo": "Professor",
+      "tipousuario": "PROF023",
+      "telefone": "1199000023",
+      "materias": [
+        "22"
+      ],
+      "disponibilidade": {
+        "segunda": {
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        },
+        "terca": {
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        },
+        "quarta": {
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        },
+        "quinta": {
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        },
+        "sexta": {
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        }
+      }
+    },
+    {
+      "id": "24",
+      "nome": "Prof. Legislação Aplicada à Informática",
+      "senha": "prof123",
+      "email": "prof_legisla.o.aplicada.inform.tica@faculdade.com",
+      "status": "Ativo",
+      "cargo": "Professor",
+      "tipousuario": "PROF024",
+      "telefone": "1199000024",
+      "materias": [
+        "23"
+      ],
+      "disponibilidade": {
+        "segunda": {
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        },
+        "terca": {
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        },
+        "quarta": {
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        },
+        "quinta": {
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        },
+        "sexta": {
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        }
+      }
+    },
+    {
+      "id": "25",
+      "nome": "Prof. Extensão em ADS I",
+      "senha": "prof123",
+      "email": "prof_extens.o.em.ads.i@faculdade.com",
+      "status": "Ativo",
+      "cargo": "Professor",
+      "tipousuario": "PROF025",
+      "telefone": "1199000025",
+      "materias": [
+        "24"
+      ],
+      "disponibilidade": {
+        "segunda": {
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        },
+        "terca": {
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        },
+        "quarta": {
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        },
+        "quinta": {
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        },
+        "sexta": {
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        }
+      }
+    },
+    {
+      "id": "26",
+      "nome": "Prof. Extensão em ADS II",
+      "senha": "prof123",
+      "email": "prof_extens.o.em.ads.ii@faculdade.com",
+      "status": "Ativo",
+      "cargo": "Professor",
+      "tipousuario": "PROF026",
+      "telefone": "1199000026",
+      "materias": [
+        "25"
+      ],
+      "disponibilidade": {
+        "segunda": {
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        },
+        "terca": {
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        },
+        "quarta": {
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        },
+        "quinta": {
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        },
+        "sexta": {
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        }
+      }
+    },
+    {
+      "id": "27",
+      "nome": "Prof. Extensão em ADS III",
+      "senha": "prof123",
+      "email": "prof_extens.o.em.ads.iii@faculdade.com",
+      "status": "Ativo",
+      "cargo": "Professor",
+      "tipousuario": "PROF027",
+      "telefone": "1199000027",
+      "materias": [
+        "26"
+      ],
+      "disponibilidade": {
+        "segunda": {
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        },
+        "terca": {
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        },
+        "quarta": {
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        },
+        "quinta": {
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        },
+        "sexta": {
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        }
+      }
+    },
+    {
+      "id": "28",
+      "nome": "Prof. Extensão em ADS IV",
+      "senha": "prof123",
+      "email": "prof_extens.o.em.ads.iv@faculdade.com",
+      "status": "Ativo",
+      "cargo": "Professor",
+      "tipousuario": "PROF028",
+      "telefone": "1199000028",
+      "materias": [
+        "27"
+      ],
+      "disponibilidade": {
+        "segunda": {
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        },
+        "terca": {
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        },
+        "quarta": {
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        },
+        "quinta": {
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        },
+        "sexta": {
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        }
+      }
+    },
+    {
+      "id": "29",
+      "nome": "Prof. Extensão em ADS V",
+      "senha": "prof123",
+      "email": "prof_extens.o.em.ads.v@faculdade.com",
+      "status": "Ativo",
+      "cargo": "Professor",
+      "tipousuario": "PROF029",
+      "telefone": "1199000029",
+      "materias": [
+        "28"
+      ],
+      "disponibilidade": {
+        "segunda": {
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        },
+        "terca": {
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        },
+        "quarta": {
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        },
+        "quinta": {
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        },
+        "sexta": {
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        }
+      }
+    },
+    {
+      "id": "30",
+      "nome": "Prof. Fundamentos da Pesquisa",
+      "senha": "prof123",
+      "email": "prof_fundamentos.da.pesquisa@faculdade.com",
+      "status": "Ativo",
+      "cargo": "Professor",
+      "tipousuario": "PROF030",
+      "telefone": "1199000030",
+      "materias": [
+        "29"
+      ],
+      "disponibilidade": {
+        "segunda": {
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        },
+        "terca": {
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        },
+        "quarta": {
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        },
+        "quinta": {
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        },
+        "sexta": {
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        }
+      }
+    },
+    {
+      "id": "31",
+      "nome": "Prof. Metodologia do Trabalho Científico",
+      "senha": "prof123",
+      "email": "prof_metodologia.do.trabalho.cient.fico@faculdade.com",
+      "status": "Ativo",
+      "cargo": "Professor",
+      "tipousuario": "PROF031",
+      "telefone": "1199000031",
+      "materias": [
+        "30"
+      ],
+      "disponibilidade": {
+        "segunda": {
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        },
+        "terca": {
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        },
+        "quarta": {
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        },
+        "quinta": {
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        },
+        "sexta": {
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        }
+      }
+    },
+    {
+      "id": "32",
+      "nome": "Prof. Libras",
+      "senha": "prof123",
+      "email": "prof_libras@faculdade.com",
+      "status": "Ativo",
+      "cargo": "Professor",
+      "tipousuario": "PROF032",
+      "telefone": "1199000032",
+      "materias": [
+        "31"
+      ],
+      "disponibilidade": {
+        "segunda": {
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        },
+        "terca": {
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        },
+        "quarta": {
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        },
+        "quinta": {
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        },
+        "sexta": {
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        }
+      }
+    },
+    {
+      "id": "2a42",
+      "nome": "Jorge lema",
+      "email": "miguel.martoni@gmail.com",
+      "cargo": "Professor",
+      "tipousuario": "PROF010",
+      "telefone": "11911111111",
+      "status": "Ativo",
+      "materias": [],
+      "disponibilidade": {
+        "segunda": {
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        },
+        "terca": {
+          "08:15": "Não",
+          "09:15": "Não",
+          "10:15": "Não",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        },
+        "quarta": {
+          "08:15": "Não",
+          "09:15": "Não",
+          "10:15": "Não",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        },
+        "quinta": {
+          "08:15": "Não",
+          "09:15": "Não",
+          "10:15": "Não",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        },
+        "sexta": {
+          "08:15": "Não",
+          "09:15": "Não",
+          "10:15": "Não",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        }
+      },
+      "senha": "123qweaa"
+    },
+    {
+      "id": "22e2",
+      "nome": "João Ramos",
+      "email": "joao.ramos@faculdade.com",
+      "cargo": "Professor",
+      "tipousuario": "PROF100",
+      "telefone": "11911111111",
+      "status": "Ativo",
+      "materias": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        9,
+        10,
+        11
+      ],
+      "disponibilidade": {
+        "segunda": {
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        },
+        "terca": {
+          "08:15": "Não",
+          "09:15": "Não",
+          "10:15": "Não",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        },
+        "quarta": {
+          "08:15": "Não",
+          "09:15": "Não",
+          "10:15": "Não",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        },
+        "quinta": {
+          "08:15": "Não",
+          "09:15": "Não",
+          "10:15": "Não",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        },
+        "sexta": {
+          "08:15": "Sim",
+          "09:15": "Não",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        }
+      },
+      "senha": "1234Miguel"
     }
   ],
   "materia": [
     {
-      "id": 1,
-      "nome": "LÃ­ngua Portuguesa",
-      "descricao": "Disciplina de LÃ­ngua Portuguesa.",
+      "id": "1",
+      "nome": "Introdução à Programação",
+      "descricao": "152h",
       "status": "Ativo"
     },
     {
-      "id": 2,
-      "nome": "EducaÃ§Ã£o FÃ­sica",
-      "descricao": "PrÃ¡ticas corporais e teorias do movimento.",
+      "id": "2",
+      "nome": "Programação Orientada a Objetos",
+      "descricao": "76h",
       "status": "Ativo"
     },
     {
-      "id": 3,
-      "nome": "Arte",
-      "descricao": "ExpressÃµes artÃ­sticas e visuais.",
+      "id": "3",
+      "nome": "Desenvolvimento Web",
+      "descricao": "76h",
       "status": "Ativo"
     },
     {
-      "id": 4,
-      "nome": "LÃ­ngua Estrangeira",
-      "descricao": "Estudos de idioma estrangeiro.",
+      "id": "4",
+      "nome": "Desenvolvimento Back-end",
+      "descricao": "76h",
       "status": "Ativo"
     },
     {
-      "id": 5,
-      "nome": "QuÃ­mica",
-      "descricao": "Estudo das transformaÃ§Ãµes quÃ­micas.",
+      "id": "5",
+      "nome": "Desenvolvimento Front-end",
+      "descricao": "76h",
       "status": "Ativo"
     },
     {
-      "id": 6,
-      "nome": "FÃ­sica",
-      "descricao": "Estudo das leis fÃ­sicas.",
+      "id": "6",
+      "nome": "Desenvolvimento Full-stack",
+      "descricao": "152h",
       "status": "Ativo"
     },
     {
-      "id": 7,
-      "nome": "Biologia",
-      "descricao": "Estudo dos seres vivos.",
+      "id": "7",
+      "nome": "Codificação Segura",
+      "descricao": "60h",
       "status": "Ativo"
     },
     {
-      "id": 8,
-      "nome": "Geografia",
-      "descricao": "Estudo do espaÃ§o geogrÃ¡fico.",
+      "id": "8",
+      "nome": "Desenvolvimento para Sistemas Embarcados",
+      "descricao": "40h",
       "status": "Ativo"
     },
     {
-      "id": 9,
-      "nome": "HistÃ³ria",
-      "descricao": "Estudos histÃ³ricos.",
+      "id": "9",
+      "nome": "Desenvolvimento para Dispositivos Móveis",
+      "descricao": "110h",
       "status": "Ativo"
     },
     {
-      "id": 10,
-      "nome": "Filosofia",
-      "descricao": "Pensamento crÃ­tico e filosofia.",
+      "id": "10",
+      "nome": "Engenharia de Requisitos",
+      "descricao": "76h",
       "status": "Ativo"
     },
     {
-      "id": 11,
-      "nome": "Sociologia",
-      "descricao": "Estudo da sociedade.",
+      "id": "11",
+      "nome": "Modelagem de Dados",
+      "descricao": "76h",
       "status": "Ativo"
     },
     {
-      "id": 12,
-      "nome": "MatemÃ¡tica",
-      "descricao": "Estudo da matemÃ¡tica.",
+      "id": "12",
+      "nome": "Análise Orientada a Objetos",
+      "descricao": "76h",
       "status": "Ativo"
     },
     {
-      "id": 13,
-      "nome": "Eletivas",
-      "descricao": "Componentes curriculares eletivos.",
+      "id": "13",
+      "nome": "UX/UI Design de Sistemas",
+      "descricao": "36h (EAD)",
       "status": "Ativo"
+    },
+    {
+      "id": "14",
+      "nome": "Arquitetura de Software",
+      "descricao": "36h",
+      "status": "Ativo"
+    },
+    {
+      "id": "15",
+      "nome": "Qualidade e Testes de Software",
+      "descricao": "76h",
+      "status": "Ativo"
+    },
+    {
+      "id": "16",
+      "nome": "Engenharia de Software",
+      "descricao": "76h",
+      "status": "Ativo"
+    },
+    {
+      "id": "17",
+      "nome": "Introdução à Computação",
+      "descricao": "36h",
+      "status": "Ativo"
+    },
+    {
+      "id": "18",
+      "nome": "Sistemas de Gerenciamento de Banco de Dados",
+      "descricao": "76h",
+      "status": "Ativo"
+    },
+    {
+      "id": "19",
+      "nome": "Tecnologias e Sistemas de Informação Gerencial",
+      "descricao": "40h",
+      "status": "Ativo"
+    },
+    {
+      "id": "20",
+      "nome": "Cloud & ITOps",
+      "descricao": "76h",
+      "status": "Ativo"
+    },
+    {
+      "id": "21",
+      "nome": "Gerenciamento de Projetos de Software",
+      "descricao": "60h",
+      "status": "Ativo"
+    },
+    {
+      "id": "22",
+      "nome": "Tópicos Especiais em ADS",
+      "descricao": "76h",
+      "status": "Ativo"
+    },
+    {
+      "id": "23",
+      "nome": "Legislação Aplicada à Informática",
+      "descricao": "36h",
+      "status": "Ativo"
+    },
+    {
+      "id": "24",
+      "nome": "Extensão em ADS I",
+      "descricao": "45h",
+      "status": "Ativo"
+    },
+    {
+      "id": "25",
+      "nome": "Extensão em ADS II",
+      "descricao": "45h",
+      "status": "Ativo"
+    },
+    {
+      "id": "26",
+      "nome": "Extensão em ADS III",
+      "descricao": "45h",
+      "status": "Ativo"
+    },
+    {
+      "id": "27",
+      "nome": "Extensão em ADS IV",
+      "descricao": "45h",
+      "status": "Ativo"
+    },
+    {
+      "id": "28",
+      "nome": "Extensão em ADS V",
+      "descricao": "30h",
+      "status": "Ativo"
+    },
+    {
+      "id": "29",
+      "nome": "Fundamentos da Pesquisa",
+      "descricao": "40h",
+      "status": "Ativo"
+    },
+    {
+      "id": "30",
+      "nome": "Metodologia do Trabalho Científico",
+      "descricao": "40h",
+      "status": "Ativo"
+    },
+    {
+      "id": "31",
+      "nome": "Libras",
+      "descricao": "60h (Optativa)",
+      "status": "Ativo"
+    },
+    {
+      "id": "fde5",
+      "nome": "Jogos online",
+      "descricao": "Jogos online",
+      "status": "active"
     }
   ],
   "turma": [
     {
-      "id": "1",
-      "nome": "Turma A",
-      "serie": "1Âº Ano",
-      "qtdalunos": 30,
-      "sala": "Sala 101",
+      "id": "84d9",
+      "nome": "ADS 2 - Fase I",
+      "serie": "Fase I",
+      "qtdalunos": 25,
+      "sala": "Sala 106",
       "status": "Ativo",
-      "horario": {}
+      "horario": {
+        "segunda": {
+          "08:15": {
+            "turmaId": "84d9",
+            "materiaId": 1,
+            "materiaNome": "Introdução à Programação",
+            "professorId": "22e2",
+            "professorNome": "João Ramos"
+          },
+          "09:15": {
+            "turmaId": "84d9",
+            "materiaId": 9,
+            "materiaNome": "Desenvolvimento para Dispositivos Móveis",
+            "professorId": "22e2",
+            "professorNome": "João Ramos"
+          },
+          "10:15": {
+            "turmaId": "84d9",
+            "materiaId": 5,
+            "materiaNome": "Desenvolvimento Front-end",
+            "professorId": "22e2",
+            "professorNome": "João Ramos"
+          },
+          "11:15": {
+            "turmaId": "84d9",
+            "materiaId": 10,
+            "materiaNome": "Engenharia de Requisitos",
+            "professorId": "22e2",
+            "professorNome": "João Ramos"
+          },
+          "12:15": {
+            "turmaId": "84d9",
+            "materiaId": 17,
+            "materiaNome": "Introdução à Computação",
+            "professorId": "18",
+            "professorNome": "Prof. Introdução à Computação"
+          }
+        },
+        "terca": {
+          "08:15": {
+            "turmaId": "84d9",
+            "materiaId": 1,
+            "materiaNome": "Introdução à Programação",
+            "professorId": "2",
+            "professorNome": "Prof. Introdução à Programação"
+          },
+          "09:15": {
+            "turmaId": "84d9",
+            "materiaId": 2,
+            "materiaNome": "Programação Orientada a Objetos",
+            "professorId": "3",
+            "professorNome": "Prof. Programação Orientada a Objetos"
+          },
+          "10:15": {
+            "turmaId": "84d9",
+            "materiaId": 5,
+            "materiaNome": "Desenvolvimento Front-end",
+            "professorId": "6",
+            "professorNome": "Prof. Desenvolvimento Front-end"
+          },
+          "11:15": {
+            "turmaId": "84d9",
+            "materiaId": 11,
+            "materiaNome": "Modelagem de Dados",
+            "professorId": "22e2",
+            "professorNome": "João Ramos"
+          },
+          "12:15": {
+            "turmaId": "84d9",
+            "materiaId": 24,
+            "materiaNome": "Extensão em ADS I",
+            "professorId": "25",
+            "professorNome": "Prof. Extensão em ADS I"
+          }
+        },
+        "quarta": {
+          "08:15": {
+            "turmaId": "84d9",
+            "materiaId": 1,
+            "materiaNome": "Introdução à Programação",
+            "professorId": "2",
+            "professorNome": "Prof. Introdução à Programação"
+          },
+          "09:15": {
+            "turmaId": "84d9",
+            "materiaId": 2,
+            "materiaNome": "Programação Orientada a Objetos",
+            "professorId": "3",
+            "professorNome": "Prof. Programação Orientada a Objetos"
+          },
+          "10:15": {
+            "turmaId": "84d9",
+            "materiaId": 7,
+            "materiaNome": "Codificação Segura",
+            "professorId": "8",
+            "professorNome": "Prof. Codificação Segura"
+          },
+          "11:15": {
+            "turmaId": "84d9",
+            "materiaId": 11,
+            "materiaNome": "Modelagem de Dados",
+            "professorId": "22e2",
+            "professorNome": "João Ramos"
+          },
+          "12:15": {
+            "turmaId": "84d9",
+            "materiaId": 29,
+            "materiaNome": "Fundamentos da Pesquisa",
+            "professorId": "30",
+            "professorNome": "Prof. Fundamentos da Pesquisa"
+          }
+        },
+        "quinta": {
+          "08:15": {
+            "turmaId": "84d9",
+            "materiaId": 9,
+            "materiaNome": "Desenvolvimento para Dispositivos Móveis",
+            "professorId": "10",
+            "professorNome": "Prof. Desenvolvimento para Dispositivos Móveis"
+          },
+          "09:15": {
+            "turmaId": "84d9",
+            "materiaId": 3,
+            "materiaNome": "Desenvolvimento Web",
+            "professorId": "4",
+            "professorNome": "Prof. Desenvolvimento Web"
+          },
+          "10:15": {
+            "turmaId": "84d9",
+            "materiaId": 7,
+            "materiaNome": "Codificação Segura",
+            "professorId": "8",
+            "professorNome": "Prof. Codificação Segura"
+          },
+          "11:15": {
+            "turmaId": "84d9",
+            "materiaId": 18,
+            "materiaNome": "Sistemas de Gerenciamento de Banco de Dados",
+            "professorId": "19",
+            "professorNome": "Prof. Sistemas de Gerenciamento de Banco de Dados"
+          },
+          "12:15": {
+            "turmaId": "84d9",
+            "materiaId": 30,
+            "materiaNome": "Metodologia do Trabalho Científico",
+            "professorId": "31",
+            "professorNome": "Prof. Metodologia do Trabalho Científico"
+          }
+        },
+        "sexta": {
+          "08:15": {
+            "turmaId": "84d9",
+            "materiaId": 9,
+            "materiaNome": "Desenvolvimento para Dispositivos Móveis",
+            "professorId": "22e2",
+            "professorNome": "João Ramos"
+          },
+          "09:15": {
+            "turmaId": "84d9",
+            "materiaId": 3,
+            "materiaNome": "Desenvolvimento Web",
+            "professorId": "4",
+            "professorNome": "Prof. Desenvolvimento Web"
+          },
+          "10:15": {
+            "turmaId": "84d9",
+            "materiaId": 10,
+            "materiaNome": "Engenharia de Requisitos",
+            "professorId": "22e2",
+            "professorNome": "João Ramos"
+          },
+          "11:15": {
+            "turmaId": "84d9",
+            "materiaId": 18,
+            "materiaNome": "Sistemas de Gerenciamento de Banco de Dados",
+            "professorId": "19",
+            "professorNome": "Prof. Sistemas de Gerenciamento de Banco de Dados"
+          },
+          "12:15": null
+        }
+      },
+      "horarioAnoLetivo": "2026",
+      "horarioObservacoes": "ADS II",
+      "horarioAtualizadoEm": "2026-03-02T22:18:36.256Z"
     },
     {
-      "id": "2",
-      "nome": "Turma B",
-      "serie": "2Âº Ano",
-      "qtdalunos": 18,
-      "sala": "Sala 308",
-      "status": "Ativo",
-      "horario": {}
-    },
-    {
-      "id": "3",
-      "nome": "Turma C",
-      "serie": "3Âº Ano",
-      "qtdalunos": 36,
-      "sala": "Sala 209",
-      "status": "Ativo",
-      "horario": {}
-    },
-    {
-      "id": "4",
-      "nome": "Turma D",
-      "serie": "4Âº Ano",
-      "qtdalunos": 27,
-      "sala": "Sala 203",
-      "status": "Inativo",
-      "horario": {}
+      "id": "9d63",
+      "nome": "ADS 3 - Fase 3",
+      "serie": "Fase III",
+      "qtdalunos": 50,
+      "sala": "Sala 108",
+      "status": "Ativo"
     }
   ]
 }

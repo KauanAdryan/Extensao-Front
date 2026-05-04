@@ -45,6 +45,28 @@ document.addEventListener('DOMContentLoaded', function() {
             loginBtn.disabled = false;
         }
     }
+
+    // Validação defensiva do reCAPTCHA (evita quebra quando o script não carregar)
+    function isRecaptchaValid() {
+        if (!window.grecaptcha || typeof grecaptcha.getResponse !== 'function') {
+            console.warn('reCAPTCHA não carregado. Pulando validação (modo desenvolvimento).');
+            return true;
+        }
+
+        const recaptchaResponse = grecaptcha.getResponse();
+        if (!recaptchaResponse) {
+            showError('Por favor, confirme que você não é um robô.');
+            return false;
+        }
+
+        return true;
+    }
+
+    function resetRecaptcha() {
+        if (window.grecaptcha && typeof grecaptcha.reset === 'function') {
+            grecaptcha.reset();
+        }
+    }
     
     // Função para validar login no JSON Server
     async function validateLogin(email, password) {
@@ -168,10 +190,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         
         // Verificar reCAPTCHA
-        const recaptchaResponse = grecaptcha.getResponse();
-        
-        if (!recaptchaResponse) {
-            showError('Por favor, confirme que você não é um robô.');
+        if (!isRecaptchaValid()) {
             return;
         }
         
@@ -179,7 +198,7 @@ document.addEventListener('DOMContentLoaded', function() {
         await validateLogin(email, password);
         
         // Limpar reCAPTCHA
-        grecaptcha.reset();
+        resetRecaptcha();
     });
     
     // Evento de clique no botão Professor

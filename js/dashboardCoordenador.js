@@ -257,6 +257,48 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
+    // Carregar lista de turmas
+    async function carregarTurmas() {
+        const container = document.getElementById('turmasList');
+        if (!container) return;
+
+        try {
+            const response = await fetch(`${API_BASE_URL}/turma`);
+
+            if (!response.ok) {
+                throw new Error('Erro ao carregar turmas');
+            }
+
+            const turmas = await response.json();
+            const turmasAtivas = turmas.filter(turma => turma.status !== 'Inativo');
+
+            if (!turmasAtivas.length) {
+                container.innerHTML = `
+                    <div class="empty-state">
+                        <i class="fas fa-users"></i>
+                        <h4>Nenhuma turma ativa</h4>
+                        <p>Cadastre uma nova turma para visualizar aqui.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            container.innerHTML = turmasAtivas.slice(0, 4).map(turma => `
+                <div class="list-item">
+                    <div class="list-avatar">${turma.nome[0] ?? 'T'}</div>
+                    <div class="list-info">
+                        <h4>${turma.nome}</h4>
+                        <p>${turma.serie ?? 'Série não informada'} · Sala ${turma.sala ?? '—'}</p>
+                    </div>
+                    <span class="status active">${turma.qtdalunos ?? 0} alunos</span>
+                </div>
+            `).join('');
+        } catch (error) {
+            console.error('Erro ao carregar turmas:', error);
+            mostrarErroTurmas();
+        }
+    }
+
 
     // Funções de exibição de erro
     function mostrarErroEstatisticas() {
@@ -349,15 +391,15 @@ document.addEventListener('DOMContentLoaded', function() {
         mobileMenuBtn.className = 'mobile-menu-btn';
         mobileMenuBtn.style.cssText = `
             position: fixed;
-            top: 20px;
-            left: 20px;
+            inset-block-start: 20px;
+            inset-inline-start: 20px;
             z-index: 999;
             background: #0D6EFD;
             color: white;
             border: none;
             border-radius: 6px;
-            width: 40px;
-            height: 40px;
+            inline-size: 40px;
+            block-size: 40px;
             display: none;
             align-items: center;
             justify-content: center;

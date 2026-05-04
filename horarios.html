@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horários - Coordenador</title>
+    <link rel="stylesheet" href="css/dashboardCoordenador.css">
+    <link rel="stylesheet" href="css/horarios.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <button class="floating-logout"><i class="fas fa-sign-out-alt"></i> Sair</button>
+    <div class="container">
+        <div class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="user-photo">
+                    <img src="https://via.placeholder.com/80" alt="Foto do Coordenador" id="userPhoto">
+                </div>
+                <div class="user-info">
+                    <h3 id="userName">Carregando...</h3>
+                    <p id="userRole">Coordenador</p>
+                </div>
+                <button class="toggle-btn" id="toggleBtn">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+            </div>
+
+            <nav class="sidebar-nav">
+                <ul>
+                    <li class="nav-item">
+                        <a href="dashboardCoordenador.html">
+                            <i class="fas fa-home"></i>
+                            <span class="nav-text">Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="usuarios.html">
+                            <i class="fas fa-user-tie"></i>
+                            <span class="nav-text">Usuários</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="materias.html">
+                            <i class="fas fa-book"></i>
+                            <span class="nav-text">Matérias</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="turmas.html">
+                            <i class="fas fa-users"></i>
+                            <span class="nav-text">Turmas</span>
+                        </a>
+                    </li>
+                    <li class="nav-item active">
+                        <a href="horarios.html">
+                            <i class="fas fa-clock"></i>
+                            <span class="nav-text">Horários</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="profile-menu">
+                    <button class="profile-btn" id="profileBtn">
+                        <i class="fas fa-user-cog"></i>
+                        <span class="profile-text">Meu Perfil</span>
+                    </button>
+                    <div class="profile-dropdown" id="profileDropdown">
+                        <a href="perfil.html" class="dropdown-item">
+                            <i class="fas fa-edit"></i>
+                            Editar Perfil
+                        </a>
+                        <a href="index.html" class="dropdown-item logout" id="logoutBtn">
+                            <i class="fas fa-sign-out-alt"></i>
+                            Sair
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="main-content" id="mainContent">
+            <div class="content-header">
+                <h1>Horários do Ano Letivo</h1>
+                <div class="breadcrumb">
+                    <span>Home</span> / <span>Horários</span>
+                </div>
+            </div>
+
+            <div class="content-body">
+                <section class="info-banner">
+                    <div>
+                        <h2>Grade única para o ano letivo</h2>
+                        <p>Gere automaticamente o horário padrão da turma para todo o ano letivo. O sistema cruza disponibilidade dos professores e evita conflitos.</p>
+                    </div>
+                    <i class="fas fa-calendar-week"></i>
+                </section>
+
+                <div class="gerador-grid">
+                    <section class="card filtros">
+                        <div class="card-header">
+                            <h2>Configurações</h2>
+                            <p>Escolha a turma e o ano letivo antes de gerar o horário.</p>
+                        </div>
+
+                        <div class="form-grid">
+                            <label class="campo">
+                                <span>Turma</span>
+                                <select id="turmaSelect">
+                                    <option value="">Selecione uma turma</option>
+                                </select>
+                            </label>
+
+                            <label class="campo">
+                                <span>Ano letivo</span>
+                                <input type="number" id="anoLetivo" min="2000" max="2100" placeholder="2025">
+                            </label>
+
+                            <label class="campo">
+                                <span>Observações</span>
+                                <input type="text" id="observacoes" placeholder="Ex.: reservar laboratório nas quintas">
+                            </label>
+                        </div>
+
+                        <div class="actions">
+                            <button id="btnGerarHorario" class="btn-primary">
+                                <i class="fas fa-magic"></i> Gerar horário
+                            </button>
+                            <button id="btnLimparTabela" class="btn-secondary" type="button">
+                                <i class="fas fa-rotate-left"></i> Limpar
+                            </button>
+                        </div>
+
+                        <div id="statusMsg" class="status info">Selecione as opções para gerar o horário anual.</div>
+                    </section>
+
+                    <aside class="card resumo-card">
+                        <h3>Resumo do quadro</h3>
+                        <p>Total de aulas semanais: <strong id="totalAulas">0</strong></p>
+                        <ul id="resumo-lista">
+                            <li>Sem dados para exibir.</li>
+                        </ul>
+                    </aside>
+                </div>
+
+                <section class="card grade-card">
+                    <header class="grade-header">
+                        <div>
+                            <h2>Grade semanal</h2>
+                            <p id="descricaoHorarios">Nenhum horário gerado ainda.</p>
+                        </div>
+                        <div class="grade-meta">
+                            <span>Ano letivo: <strong id="anoLetivoSelecionado">-</strong></span>
+                            <span>Última atualização: <strong id="ultimaAtualizacao">-</strong></span>
+                        </div>
+                    </header>
+
+                    <div class="table-wrapper">
+                        <table id="tabela-horario">
+                            <thead>
+                                <tr>
+                                    <th>Horário</th>
+                                    <th>Segunda</th>
+                                    <th>Terça</th>
+                                    <th>Quarta</th>
+                                    <th>Quinta</th>
+                                    <th>Sexta</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="placeholder">
+                                    <td colspan="6">Os horários aparecerão aqui após a geração.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/dashboardCoordenador.js"></script>
+    <script type="module" src="js/horarios.js"></script>
+    <script src="js/logout.js"></script>
+</body>
+</html>

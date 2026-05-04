@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
+    const DIAS = ["segunda", "terca", "quarta", "quinta", "sexta"];
     // ========== ELEMENTOS DO DROPDOWN E SIDEBAR ==========
     const profileBtn = document.getElementById('profileBtn');
     const profileDropdown = document.getElementById('profileDropdown');
@@ -17,6 +18,14 @@ document.addEventListener('DOMContentLoaded', function() {
     const confirmModal = document.getElementById('confirmModal');
     const turmaForm = document.getElementById('turmaForm');
     const modalTitle = document.getElementById('modalTitle');
+    const horarioModal = document.getElementById('horarioModal');
+    const closeHorarioModalBtn = document.getElementById('closeHorarioModal');
+    const horarioModalTitle = document.getElementById('horarioModalTitle');
+    const horarioModalAno = document.getElementById('horarioModalAno');
+    const horarioModalObs = document.getElementById('horarioModalObs');
+    const horarioModalTableWrapper = document.getElementById('horarioModalTableWrapper');
+    const horarioModalTableBody = document.querySelector('#horarioModalTable tbody');
+    const horarioModalEmpty = document.getElementById('horarioModalEmpty');
     
     // URLs da API
     const API_BASE_URL = 'http://localhost:3000';
@@ -64,7 +73,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function setupSidebarToggle() {
         if (toggleBtn && sidebar) {
             toggleBtn.addEventListener('click', function() {
-                // Adiciona delay para melhor experiência da animação
+                // Adiciona delay para melhor experi?ncia da animação
                 this.style.pointerEvents = 'none';
                 
                 sidebar.classList.toggle('collapsed');
@@ -115,26 +124,23 @@ document.addEventListener('DOMContentLoaded', function() {
     function atualizarUsuarioLogado() {
         try {
             const usuarioLogado = localStorage.getItem('usuarioLogado');
+            const fallbackUsuario = {
+                nome: 'Coordenador',
+                cargo: 'Coordenador'
+            };
+
+            const dadosUsuario = usuarioLogado ? JSON.parse(usuarioLogado) : fallbackUsuario;
+
+            // Atualizar nome do usuário na UI (sem redirecionar ao dar F5)
+            const userNameElement = document.getElementById('userName');
+            const welcomeNameElement = document.getElementById('welcomeName');
             
-            if (usuarioLogado) {
-                const dadosUsuario = JSON.parse(usuarioLogado);
-                
-                // Atualizar nome do usuário
-                const userNameElement = document.getElementById('userName');
-                const welcomeNameElement = document.getElementById('welcomeName');
-                
-                if (userNameElement) {
-                    userNameElement.textContent = dadosUsuario.nome;
-                }
-                
-                if (welcomeNameElement) {
-                    welcomeNameElement.textContent = dadosUsuario.nome.split(' ')[0];
-                }
-            } else {
-                // Redirecionar para login se não estiver logado
-                if (!window.location.href.includes('index.html')) {
-                    window.location.href = 'index.html';
-                }
+            if (userNameElement) {
+                userNameElement.textContent = dadosUsuario.nome;
+            }
+            
+            if (welcomeNameElement) {
+                welcomeNameElement.textContent = dadosUsuario.nome.split(' ')[0];
             }
         } catch (error) {
             console.error('Erro ao carregar dados do usuário:', error);
@@ -230,6 +236,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Formulário
         if (turmaForm) turmaForm.addEventListener('submit', handleTurmaSubmit);
+        if (closeHorarioModalBtn) closeHorarioModalBtn.addEventListener('click', closeHorarioModal);
 
         // Modal de confirmação
         const closeConfirmModalBtn = document.getElementById('closeConfirmModal');
@@ -244,6 +251,7 @@ document.addEventListener('DOMContentLoaded', function() {
         window.addEventListener('click', function(e) {
             if (turmaModal && e.target === turmaModal) closeTurmaModal();
             if (confirmModal && e.target === confirmModal) closeConfirmModal();
+            if (horarioModal && e.target === horarioModal) closeHorarioModal();
         });
     }
 
@@ -258,7 +266,26 @@ document.addEventListener('DOMContentLoaded', function() {
                 throw new Error('Erro ao carregar turmas');
             }
 
-            turmas = await response.json();
+            turmas = deduplicarTurmas(await response.json());
+
+            // Reaplica horário salvo localmente quando existir backup
+            for (const key of Object.keys(localStorage)) {
+                if (!key.startsWith('horario_turma_')) continue;
+                const id = key.replace('horario_turma_', '');
+                try {
+                    const payload = JSON.parse(localStorage.getItem(key) || '{}');
+                    const turmaLocal = turmas.find(t => `${t.id}` === id);
+                    if (turmaLocal && payload) {
+                        turmaLocal.horario = payload.horario ?? turmaLocal.horario;
+                        turmaLocal.horarioAnoLetivo = payload.horarioAnoLetivo ?? turmaLocal.horarioAnoLetivo;
+                        turmaLocal.horarioObservacoes = payload.horarioObservacoes ?? turmaLocal.horarioObservacoes;
+                        turmaLocal.horarioAtualizadoEm = payload.horarioAtualizadoEm ?? turmaLocal.horarioAtualizadoEm;
+                    }
+                } catch (err) {
+                    console.warn('Não foi possível aplicar backup local do horário', err);
+                }
+            }
+
             renderTurmas();
             
         } catch (error) {
@@ -309,34 +336,42 @@ document.addEventListener('DOMContentLoaded', function() {
         turmasList.innerHTML = filteredTurmas.map(turma => {
             return `
                 <div class="turma-card" data-turma-id="${turma.id}">
-                    <div class="turma-info">
-                        <div class="turma-icon">
-                            <i class="fas fa-users"></i>
-                        </div>
-                        <div class="turma-details">
-                            <h3>${turma.nome}</h3>
-                            <div class="turma-meta">
-                                <span class="turma-serie ${getSerieClass(turma.serie)}">
-                                    ${turma.serie}
-                                </span>
-                                <span class="turma-status ${turma.status === 'Ativo' ? 'active' : 'inactive'}">
-                                    ${turma.status}
-                                </span>
-                                <span>${turma.qtdalunos || 0} alunos</span>
-                                <span>${turma.sala}</span>
+                    <div class="turma-main">
+                        <div class="turma-info">
+                            <div class="turma-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="turma-details">
+                                <h3>${turma.nome}</h3>
+                                <div class="turma-meta">
+                                    <span class="turma-serie ${getSerieClass(turma.serie)}">${turma.serie}</span>
+                                    <span class="turma-status ${turma.status === 'Ativo' ? 'active' : 'inactive'}">
+                                        ${turma.status}
+                                    </span>
+                                    <span>${turma.qtdalunos || 0} alunos</span>
+                                    ${turma.sala ? `<span>${formatSala(turma.sala)}</span>` : ''}
+                                </div>
                             </div>
                         </div>
+                        <div class="turma-actions">
+                            <span class="alunos-badge">${turma.qtdalunos || 0} alunos</span>
+                            <button class="btn-view-horario" data-turma-id="${turma.id}">
+                                <i class="fas fa-calendar-day"></i>
+                                Ver horário
+                            </button>
+                            <button class="btn-edit" data-turma-id="${turma.id}">
+                                <i class="fas fa-edit"></i>
+                                Editar
+                            </button>
+                            <button class="btn-inactivate ${turma.status === 'Inativo' ? 'inactive' : ''}" 
+                                    data-turma-id="${turma.id}">
+                                <i class="fas ${turma.status === 'Ativo' ? 'fa-user-slash' : 'fa-user-check'}"></i>
+                                ${turma.status === 'Ativo' ? 'Inativar' : 'Ativar'}
+                            </button>
+                        </div>
                     </div>
-                    <div class="turma-actions">
-                        <button class="btn-edit" data-turma-id="${turma.id}">
-                            <i class="fas fa-edit"></i>
-                            Editar
-                        </button>
-                        <button class="btn-inactivate ${turma.status === 'Inativo' ? 'inactive' : ''}" 
-                                data-turma-id="${turma.id}">
-                            <i class="fas ${turma.status === 'Ativo' ? 'fa-user-slash' : 'fa-user-check'}"></i>
-                            ${turma.status === 'Ativo' ? 'Inativar' : 'Ativar'}
-                        </button>
+                    <div class="turma-horario-preview">
+                        ${renderHorarioPreview(turma.horario)}
                     </div>
                 </div>
             `;
@@ -346,8 +381,131 @@ document.addEventListener('DOMContentLoaded', function() {
         addButtonEventListeners();
     }
 
+    function renderHorarioPreview(horario) {
+        if (!horario || Object.keys(horario).length === 0) {
+            return `<p class="horario-empty"><i class="fas fa-clock"></i> Horário ainda não gerado.</p>`;
+        }
+
+        const horas = obterHorasOrdenadas(horario).slice(0, 3);
+        const linhas = horas.map(hora => {
+            const colunas = DIAS.map(dia => {
+                const aula = horario[dia]?.[hora];
+                return `<td>${aula ? aula.materiaNome : "-"}</td>`;
+            }).join("");
+            return `<tr><th>${hora}</th>${colunas}</tr>`;
+        }).join("");
+
+        return `
+            <div class="horario-preview-wrapper">
+                <p><i class="fas fa-calendar-check"></i> Horário salvo</p>
+                <table class="horario-preview-table">
+                    <thead>
+                        <tr>
+                            <th>Horário</th>
+                            <th>Seg</th>
+                            <th>Ter</th>
+                            <th>Qua</th>
+                            <th>Qui</th>
+                            <th>Sex</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        ${linhas}
+                    </tbody>
+                </table>
+            </div>
+        `;
+    }
+
+    function obterHorasOrdenadas(horario) {
+        const conjunto = new Set();
+        for (const dia of DIAS) {
+            const horasDia = Object.keys(horario?.[dia] || {});
+            horasDia.forEach((hora) => conjunto.add(hora));
+        }
+        return [...conjunto].sort((a, b) => {
+            const [ha, ma] = a.split(":").map(Number);
+            const [hb, mb] = b.split(":").map(Number);
+            return ha === hb ? ma - mb : ha - hb;
+        });
+    }
+
+    async function showHorarioModal(turmaId) {
+        if (!horarioModal) return;
+        try {
+            const response = await fetch(`${API_BASE_URL}/turma/${turmaId}`);
+            if (!response.ok) {
+                throw new Error('Erro ao carregar horário da turma');
+            }
+            const turma = await response.json();
+            preencherHorarioModal(turma);
+            horarioModal.classList.add('show');
+        } catch (error) {
+            console.error('Erro ao abrir horário da turma:', error);
+            showNotification('Não foi possível carregar o horário desta turma.', 'error');
+        }
+    }
+
+    function preencherHorarioModal(turma) {
+        if (!horarioModalTitle || !horarioModalTableBody) return;
+        const horario = turma.horario ?? {};
+        const horas = obterHorasOrdenadas(horario);
+
+        horarioModalTitle.textContent = `Horário • ${turma.nome ?? ''}`;
+        if (horarioModalAno) horarioModalAno.textContent = turma.horarioAnoLetivo ?? '-';
+        if (horarioModalObs) {
+            horarioModalObs.textContent = turma.horarioObservacoes
+                ? `Observações: ${turma.horarioObservacoes}`
+                : 'Sem observações registradas.';
+        }
+
+        if (!horas.length) {
+            if (horarioModalTableWrapper) horarioModalTableWrapper.style.display = 'none';
+            if (horarioModalEmpty) horarioModalEmpty.style.display = 'block';
+            horarioModalTableBody.innerHTML = '';
+            return;
+        }
+
+        if (horarioModalTableWrapper) horarioModalTableWrapper.style.display = 'block';
+        if (horarioModalEmpty) horarioModalEmpty.style.display = 'none';
+
+        horarioModalTableBody.innerHTML = horas.map(hora => {
+            const colunas = DIAS.map(dia => {
+                const aula = horario[dia]?.[hora];
+                return `<td>${aula ? aula.materiaNome : '-'}</td>`;
+            }).join('');
+            return `<tr><th>${hora}</th>${colunas}</tr>`;
+        }).join('');
+    }
+
+    function closeHorarioModal() {
+        if (horarioModal) horarioModal.classList.remove('show');
+        if (horarioModalTableBody) horarioModalTableBody.innerHTML = '';
+        if (horarioModalTableWrapper) horarioModalTableWrapper.style.display = 'none';
+        if (horarioModalEmpty) horarioModalEmpty.style.display = 'block';
+    }
+
     // Adicionar event listeners aos botões
     function addButtonEventListeners() {
+        const viewButtons = turmasList.querySelectorAll('.btn-view-horario');
+        viewButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const turmaId = this.getAttribute('data-turma-id');
+                showHorarioModal(turmaId);
+            });
+        });
+
+        // Clique no card inteiro abre o horário (exceto quando clicar nos botões)
+        const cards = turmasList.querySelectorAll('.turma-card');
+        cards.forEach(card => {
+            card.addEventListener('click', function(e) {
+                const isButton = e.target.closest('button');
+                if (isButton) return;
+                const turmaId = this.getAttribute('data-turma-id');
+                showHorarioModal(turmaId);
+            });
+        });
+
         // Botões de editar
         const editButtons = turmasList.querySelectorAll('.btn-edit');
         editButtons.forEach(button => {
@@ -370,12 +528,41 @@ document.addEventListener('DOMContentLoaded', function() {
     // Funções auxiliares para formatação
     function getSerieClass(serie) {
         const series = {
-            '1º Ano': 'primeiro',
-            '2º Ano': 'segundo', 
-            '3º Ano': 'terceiro',
-            '4º Ano': 'quarto'
+            'Fase I': 'primeiro',
+            'Fase II': 'segundo',
+            'Fase III': 'terceiro'
         };
         return series[serie] || 'primeiro';
+    }
+
+    function formatSala(sala) {
+        if (!sala) return '';
+        const cleaned = sala.trim().replace(/^Sala\s+/i, '').trim();
+        return cleaned ? `Sala ${cleaned}` : '';
+    }
+
+    function deduplicarTurmas(lista) {
+        const mapa = new Map();
+
+        const score = (turma) => {
+            const horario = turma?.horario || {};
+            const totalSlots = Object.values(horario).reduce((acc, dia) => acc + Object.keys(dia || {}).length, 0);
+            const atualizadoEm = turma?.horarioAtualizadoEm ? Date.parse(turma.horarioAtualizadoEm) || 0 : 0;
+            return (totalSlots > 0 ? 1000 : 0) + atualizadoEm;
+        };
+
+        for (const turma of lista || []) {
+            const nomeKey = (turma.nome || '').toLowerCase().trim();
+            const serieKey = (turma.serie || '').toLowerCase().trim();
+            const chave = nomeKey ? `${nomeKey}|${serieKey || 'serie'}` : (turma.id ? `${turma.id}` : '');
+            const existente = mapa.get(chave);
+
+            if (!existente || score(turma) > score(existente)) {
+                mapa.set(chave, turma);
+            }
+        }
+
+        return Array.from(mapa.values());
     }
 
     // Filtrar turmas
@@ -563,6 +750,18 @@ document.addEventListener('DOMContentLoaded', function() {
             if (!formData.qtdalunos || formData.qtdalunos <= 0) {
                 showNotification('A quantidade de alunos deve ser maior que zero!', 'error');
                 return;
+            }
+
+            const salaKey = (formData.sala || '').trim().toLowerCase();
+            if (salaKey) {
+                const salaEmUso = turmas.some(t => {
+                    const salaTurma = (t.sala || '').trim().toLowerCase();
+                    return t.id !== currentTurmaId && salaTurma && salaTurma === salaKey;
+                });
+                if (salaEmUso) {
+                    showNotification('Já existe outra turma cadastrada com esta sala. Escolha outra sala.', 'error');
+                    return;
+                }
             }
 
             let response;

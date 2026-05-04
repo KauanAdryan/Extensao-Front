@@ -24,6 +24,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const userTypeSelect = document.getElementById('userType');
     const materiasSection = document.getElementById('materiasSection');
     const materiasGrid = document.getElementById('materiasGrid');
+    const disponibilidadeSection = document.getElementById('disponibilidadeSection');
+    const disponibilidadeGrid = document.getElementById('disponibilidadeGrid');
 
     // Verificar se elementos críticos existem
     if (!usersList || !userForm || !userModal) {
@@ -38,6 +40,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // URLs da API
     const API_BASE_URL = 'http://localhost:3000';
+    const DIAS = ['segunda', 'terca', 'quarta', 'quinta', 'sexta'];
+    const HORARIOS = ['08:15', '09:15', '10:15', '11:15', '12:15'];
     
     // Variáveis de estado
     let users = [];
@@ -346,12 +350,48 @@ document.addEventListener('DOMContentLoaded', function() {
         `).join('');
     }
 
+    function renderDisponibilidadeGrid(disponibilidade = {}) {
+        if (!disponibilidadeGrid) return;
+        const header = ['<th>Horário</th>', ...DIAS.map(d => `<th>${d.charAt(0).toUpperCase() + d.slice(1)}</th>`)].join('');
+        const rows = HORARIOS.map(hora => {
+            const cells = DIAS.map(dia => {
+                const checked = disponibilidade?.[dia]?.[hora] === 'Sim' ? 'checked' : '';
+                return `<td><input type="checkbox" data-dia="${dia}" data-hora="${hora}" ${checked}></td>`;
+            }).join('');
+            return `<tr><th>${hora}</th>${cells}</tr>`;
+        }).join('');
+
+        disponibilidadeGrid.innerHTML = `
+            <table>
+                <thead><tr>${header}</tr></thead>
+                <tbody>${rows}</tbody>
+            </table>
+        `;
+    }
+
+    function coletarDisponibilidade() {
+        if (!disponibilidadeGrid) return {};
+        const disponibilidade = {};
+        const inputs = disponibilidadeGrid.querySelectorAll('input[type="checkbox"]');
+        inputs.forEach(input => {
+            const dia = input.getAttribute('data-dia');
+            const hora = input.getAttribute('data-hora');
+            if (!disponibilidade[dia]) disponibilidade[dia] = {};
+            disponibilidade[dia][hora] = input.checked ? 'Sim' : 'Não';
+        });
+        return disponibilidade;
+    }
+
     // Mostrar/ocultar seção de matérias baseado no tipo de usuário
     function toggleMateriasSection() {
-        if (!materiasSection || !userTypeSelect) return;
+        if (!userTypeSelect) return;
         
         const isProfessor = userTypeSelect.value === 'professor';
-        materiasSection.style.display = isProfessor ? 'block' : 'none';
+        if (materiasSection) materiasSection.style.display = isProfessor ? 'block' : 'none';
+        if (disponibilidadeSection) disponibilidadeSection.style.display = isProfessor ? 'block' : 'none';
+        if (isProfessor) {
+            renderDisponibilidadeGrid();
+        }
     }
 
     // Estado de carregamento
@@ -403,40 +443,43 @@ document.addEventListener('DOMContentLoaded', function() {
             }).filter(nome => nome).join(', ') : '';
 
             const userType = user.cargo === 'Coordenador' || user.cargo === 'Coordenadora' ? 'coordenador' : 'professor';
-            const userStatus = user.status === 'Ativo' ? 'active' : 'inactive';
+            const userStatus = user.status || 'Ativo';
+            const userStatusClass = userStatus === 'Ativo' ? 'active' : 'inactive';
 
             // DEBUG: Verificar ID do usuário durante o render
             console.log(`Renderizando usuário: ${user.nome} (ID: ${user.id}, Tipo: ${typeof user.id})`);
 
             return `
                 <div class="user-card" data-user-id="${user.id}">
-                    <div class="user-info">
-                        <div class="user-avatar">${generateAvatar(user.nome)}</div>
-                        <div class="user-details">
-                            <h3>${user.nome}</h3>
-                            <div class="user-meta">
-                                <span class="user-type ${userType}">
-                                    ${user.cargo}
-                                </span>
-                                <span class="user-status ${userStatus}">
-                                    ${user.status}
-                                </span>
-                                <span>${user.email}</span>
-                                <span>${user.tipousuario}</span>
-                                ${userMaterias ? `<span title="Matérias: ${userMaterias}">${userMaterias}</span>` : ''}
+                    <div class="user-main">
+                        <div class="user-info">
+                            <div class="user-avatar">${generateAvatar(user.nome)}</div>
+                            <div class="user-details">
+                                <h3>${user.nome}</h3>
+                                <div class="user-meta">
+                                    <span class="user-type ${userType}">
+                                        ${user.cargo}
+                                    </span>
+                                    <span class="user-status ${userStatusClass}">
+                                        ${userStatus}
+                                    </span>
+                                    <span>${user.email}</span>
+                                    <span>${user.tipousuario}</span>
+                                    ${userMaterias ? `<span title="Matérias: ${userMaterias}">${userMaterias}</span>` : ''}
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="user-actions">
-                        <button class="btn-edit" data-user-id="${user.id}">
-                            <i class="fas fa-edit"></i>
-                            Editar
-                        </button>
-                        <button class="btn-inactivate ${userStatus === 'inactive' ? 'inactive' : ''}" 
-                                data-user-id="${user.id}">
-                            <i class="fas ${userStatus === 'active' ? 'fa-user-slash' : 'fa-user-check'}"></i>
-                            ${userStatus === 'active' ? 'Inativar' : 'Ativar'}
-                        </button>
+                        <div class="user-actions">
+                            <button class="btn-edit" data-user-id="${user.id}">
+                                <i class="fas fa-edit"></i>
+                                Editar
+                            </button>
+                            <button class="btn-inactivate ${userStatusClass === 'inactive' ? 'inactive' : ''}" 
+                                    data-user-id="${user.id}">
+                                <i class="fas ${userStatusClass === 'active' ? 'fa-user-slash' : 'fa-user-check'}"></i>
+                                ${userStatusClass === 'active' ? 'Inativar' : 'Ativar'}
+                            </button>
+                        </div>
                     </div>
                 </div>
             `;
@@ -477,7 +520,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         const filteredUsers = users.filter(user => {
             const userType = user.cargo === 'Coordenador' || user.cargo === 'Coordenadora' ? 'coordenador' : 'professor';
-            const userStatus = user.status === 'Ativo' ? 'active' : 'inactive';
+            const userStatus = user.status || 'Ativo';
 
             const matchesSearch = user.nome.toLowerCase().includes(searchTerm) || 
                                 user.email.toLowerCase().includes(searchTerm) ||
@@ -508,13 +551,15 @@ document.addEventListener('DOMContentLoaded', function() {
         const confirmPassword = document.getElementById('confirmPassword');
         
         if (userIdField) userIdField.value = '';
-        if (userStatusField) userStatusField.value = 'active';
+        if (userStatusField) userStatusField.value = 'Ativo';
         
         if (passwordFields) passwordFields.style.display = 'grid';
         if (userPassword) userPassword.required = true;
         if (confirmPassword) confirmPassword.required = true;
         
         if (materiasSection) materiasSection.style.display = 'none';
+        if (disponibilidadeSection) disponibilidadeSection.style.display = 'none';
+        renderDisponibilidadeGrid();
         
         currentUserId = null;
         userModal.classList.add('show');
@@ -564,7 +609,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if (userType) userType.value = user.cargo === 'Coordenador' || user.cargo === 'Coordenadora' ? 'coordenador' : 'professor';
             if (userMatricula) userMatricula.value = user.tipousuario;
             if (userPhone) userPhone.value = user.telefone || '';
-            if (userStatus) userStatus.value = user.status === 'Ativo' ? 'active' : 'inactive';
+            if (userStatus) userStatus.value = user.status || 'Ativo';
             
             // Ocultar campos de senha para edição
             const passwordFields = document.getElementById('passwordFields');
@@ -589,6 +634,9 @@ document.addEventListener('DOMContentLoaded', function() {
                     });
                 }, 100);
             }
+
+            // Preencher disponibilidade
+            renderDisponibilidadeGrid(user.disponibilidade || {});
 
             currentUserId = user.id; // Usar o ID original do usuário
             userModal.classList.add('show');
@@ -733,7 +781,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 cargo: document.getElementById('userType')?.value === 'coordenador' ? 'Coordenador' : 'Professor',
                 tipousuario: document.getElementById('userMatricula')?.value || '',
                 telefone: document.getElementById('userPhone')?.value || '',
-                status: document.getElementById('userStatus')?.value === 'active' ? 'Ativo' : 'Inativo'
+                status: document.getElementById('userStatus')?.value || 'Ativo'
             };
 
             // Validação básica
@@ -750,8 +798,10 @@ document.addEventListener('DOMContentLoaded', function() {
                     materiasSelecionadas.push(parseInt(checkbox.value));
                 });
                 formData.materias = materiasSelecionadas;
+                formData.disponibilidade = coletarDisponibilidade();
             } else {
                 formData.materias = [];
+                formData.disponibilidade = {};
             }
 
             // Validação de senha apenas para novos usuários

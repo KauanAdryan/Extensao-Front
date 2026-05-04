@@ -6,11 +6,12 @@
     <title>Gerenciar Turmas</title>
     <link rel="stylesheet" href="css/dashboardCoordenador.css">
     <link rel="stylesheet" href="css/turmas.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
+    <button class="floating-logout"><i class="fas fa-sign-out-alt"></i> Sair</button>
     <div class="container">
-        <!-- Sidebar (mesma do dashboard) -->
+        <!-- Sidebar -->
         <div class="sidebar" id="sidebar">
             <div class="sidebar-header">
                 <div class="user-photo">
@@ -80,17 +81,24 @@
             </div>
         </div>
 
-        <!-- Main Content -->
+        <!-- Main -->
         <div class="main-content" id="mainContent">
             <div class="content-header">
-                <h1>Gerenciar Turmas</h1>
-                <div class="breadcrumb">
-                    <span>Home</span> / <span>Turmas</span>
+                <div>
+                    <h1>Gerenciar Turmas</h1>
+                    <div class="breadcrumb">
+                        <span>Home</span> / <span>Turmas</span>
+                    </div>
+                </div>
+                <div class="header-actions">
+                    <button class="btn-primary" id="addTurmaBtn">
+                        <i class="fas fa-plus"></i>
+                        Cadastrar Turma
+                    </button>
                 </div>
             </div>
 
             <div class="content-body">
-                <!-- Barra de Pesquisa e Filtros -->
                 <div class="search-section">
                     <div class="search-bar">
                         <i class="fas fa-search"></i>
@@ -98,10 +106,10 @@
                     </div>
                     <div class="filters">
                         <select id="filterSerie">
-                            <option value="all">Todas as Séries</option>
-                            <option value="1">1º Ano</option>
-                            <option value="2">2º Ano</option>
-                            <option value="3">3º Ano</option>
+                            <option value="all">Todas as Fases</option>
+                            <option value="Fase I">Fase I</option>
+                            <option value="Fase II">Fase II</option>
+                            <option value="Fase III">Fase III</option>
                         </select>
                         <select id="filterStatus">
                             <option value="all">Todos os Status</option>
@@ -111,26 +119,19 @@
                     </div>
                 </div>
 
-                <!-- Lista de Turmas -->
                 <div class="turmas-container">
                     <div class="turmas-header">
                         <h2>Turmas Cadastradas</h2>
-                        <button class="btn-primary" id="addTurmaBtn">
-                            <i class="fas fa-plus"></i>
-                            Cadastrar Turma
-                        </button>
                     </div>
-
-                    <div class="turmas-details" id="turmasList">
-
-                        </div>
+                    <div id="turmasList">
+                        <!-- preenchido via JS -->
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Modal de Cadastro/Edição -->
+    <!-- Modal Turma -->
     <div class="modal" id="turmaModal">
         <div class="modal-content large-modal">
             <div class="modal-header">
@@ -140,64 +141,48 @@
             <div class="modal-body">
                 <form id="turmaForm">
                     <input type="hidden" id="turmaId">
-                    
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="turmaNome">Nome da Turma *</label>
-                            <input type="text" id="turmaNome" required placeholder="Ex: Turma A">
+                            <label for="turmaNome">Nome da turma *</label>
+                            <input type="text" id="turmaNome" required>
                         </div>
-
                         <div class="form-group">
-                            <label for="turmaSerie">Série *</label>
+                            <label for="turmaSerie">Série/Fase *</label>
                             <select id="turmaSerie" required>
                                 <option value="">Selecione...</option>
-                                <option value="1º Ano">1º Ano</option>
-                                <option value="2º Ano">2º Ano</option>
-                                <option value="3º Ano">3º Ano</option>
+                                <option value="Fase I">Fase I</option>
+                                <option value="Fase II">Fase II</option>
+                                <option value="Fase III">Fase III</option>
                             </select>
                         </div>
                     </div>
-
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="turmaQuantidade">Quantidade de Alunos *</label>
-                            <input type="number" id="turmaQuantidade" required min="1" max="50" placeholder="Ex: 30">
+                            <label for="turmaQuantidade">Quantidade de alunos *</label>
+                            <input type="number" id="turmaQuantidade" min="1" max="60" required>
                         </div>
-
                         <div class="form-group">
-                            <label for="turmaPeriodo">Período *</label>
-                            <select id="turmaPeriodo" required>
-                                <option value="">Selecione...</option>
-                                <option value="manha">Manhã</option>
-                                <option value="tarde">Tarde</option>
-                                <option value="noite">Noite</option>
+                            <label for="turmaSala">Sala</label>
+                            <input type="text" id="turmaSala" placeholder="Ex: Sala 101">
+                        </div>
+                        <div class="form-group">
+                            <label for="turmaStatus">Status</label>
+                            <select id="turmaStatus">
+                                <option value="Ativo">Ativa</option>
+                                <option value="Inativo">Inativa</option>
                             </select>
                         </div>
                     </div>
-
-                    <div class="form-group">
-                        <label for="turmaSala">Sala</label>
-                        <input type="text" id="turmaSala" placeholder="Ex: Sala 101">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="turmaStatus">Status</label>
-                        <select id="turmaStatus">
-                            <option value="active">Ativa</option>
-                            <option value="inactive">Inativa</option>
-                        </select>
-                    </div>
-
                     <div class="form-actions">
                         <button type="button" class="btn btn-secondary" id="cancelBtn">Cancelar</button>
-                        <button type="submit" class="btn btn-primary">Salvar Turma</button>
+                        <button type="submit" class="btn btn-primary">Salvar</button>
                     </div>
                 </form>
             </div>
         </div>
     </div>
 
-    <!-- Modal de Confirmação de Inativação -->
+    <!-- Modal Confirmar -->
     <div class="modal" id="confirmModal">
         <div class="modal-content">
             <div class="modal-header">
@@ -214,7 +199,40 @@
         </div>
     </div>
 
+    <!-- Modal Horário -->
+    <div class="modal" id="horarioModal">
+        <div class="modal-content horario-modal-content">
+            <div class="modal-header">
+                <h3 id="horarioModalTitle">Horário da Turma</h3>
+                <button class="close-btn" id="closeHorarioModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="horario-modal-info">
+                    <p>Ano letivo: <strong id="horarioModalAno">-</strong></p>
+                    <p id="horarioModalObs">Sem observações registradas.</p>
+                </div>
+                <div class="table-wrapper horario-modal-table" id="horarioModalTableWrapper" style="display:none;">
+                    <table id="horarioModalTable">
+                        <thead>
+                            <tr>
+                                <th>Horário</th>
+                                <th>Segunda</th>
+                                <th>Terça</th>
+                                <th>Quarta</th>
+                                <th>Quinta</th>
+                                <th>Sexta</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+                <p class="horario-empty" id="horarioModalEmpty">Nenhum horário foi gerado para esta turma.</p>
+            </div>
+        </div>
+    </div>
+
     <script src="js/dashboardCoordenador.js"></script>
     <script src="js/turmas.js"></script>
+    <script src="js/logout.js"></script>
 </body>
 </html>

@@ -878,3 +878,28 @@ body {
     transform: scale(1.1);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
+
+/* Botão flutuante de sair */
+.floating-logout {
+    position: fixed;
+    top: 16px;
+    right: 16px;
+    z-index: 1200;
+    background: linear-gradient(135deg, #ef4444, #dc2626);
+    color: #fff;
+    border: none;
+    border-radius: 999px;
+    padding: 10px 14px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 10px 25px rgba(239, 68, 68, 0.35);
+    transition: all 0.2s ease;
+}
+
+.floating-logout:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 12px 28px rgba(239, 68, 68, 0.45);
+}

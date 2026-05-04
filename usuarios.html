@@ -9,6 +9,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
+    <button class="floating-logout"><i class="fas fa-sign-out-alt"></i> Sair</button>
     <div class="container">
         <!-- Sidebar (mesma do dashboard) -->
         <div class="sidebar" id="sidebar">
@@ -104,8 +105,8 @@
                         </select>
                         <select id="filterStatus">
                             <option value="all">Todos os Status</option>
-                            <option value="active">Ativos</option>
-                            <option value="inactive">Inativos</option>
+                            <option value="Ativo">Ativos</option>
+                            <option value="Inativo">Inativos</option>
                         </select>
                     </div>
                 </div>
@@ -176,17 +177,33 @@
                         <div class="form-group">
                             <label for="userStatus">Status</label>
                             <select id="userStatus">
-                                <option value="active">Ativo</option>
-                                <option value="inactive">Inativo</option>
+                                <option value="Ativo">Ativo</option>
+                                <option value="Inativo">Inativo</option>
                             </select>
                         </div>
                     </div>
 
-                    <!-- Seleção de Matérias (apenas para professores) -->
-                    <div class="form-group" id="materiasSection" style="display: none;">
-                        <label>Matérias Lecionadas</label>
-                        <div class="materias-grid" id="materiasGrid">
-                            <!-- Matérias serão carregadas aqui via JavaScript -->
+                    <div class="professor-sections">
+                        <!-- Seleção de Matérias (apenas para professores) -->
+                        <div class="form-group card-section" id="materiasSection" style="display: none;">
+                            <div class="section-header">
+                                <label>Matérias Lecionadas</label>
+                                <small>Escolha as disciplinas que o professor ministra</small>
+                            </div>
+                            <div class="materias-grid" id="materiasGrid">
+                                <!-- Matérias serão carregadas aqui via JavaScript -->
+                            </div>
+                        </div>
+
+                        <!-- Disponibilidade do professor -->
+                        <div class="form-group card-section" id="disponibilidadeSection" style="display: none;">
+                            <div class="section-header">
+                                <label>Disponibilidade semanal</label>
+                                <small>Marque os horários em que o professor pode dar aula</small>
+                            </div>
+                            <div class="disponibilidade-grid" id="disponibilidadeGrid">
+                                <!-- preenchido via JS -->
+                            </div>
                         </div>
                     </div>
 
@@ -230,5 +247,6 @@
 
     <script src="js/dashboardCoordenador.js"></script>
     <script src="js/usuarios.js"></script>
+    <script src="js/logout.js"></script>
 </body>
 </html>
