@@ -1,4 +1,4 @@
-{
+﻿{
   "usuario": [
     {
       "id": "1",
@@ -19,80 +19,871 @@
       "status": "Inativo",
       "cargo": "Coordenadora",
       "tipousuario": "COORD002",
-      "telefone": 11988888888
+      "telefone": "11988888888",
+      "materias": []
     },
     {
       "id": "3",
+      "nome": "Maria Pereira",
+      "senha": "maria123",
+      "email": "maria@escola.com",
+      "status": "Ativo",
+      "cargo": "Professor",
+      "tipousuario": "PROF001",
+      "telefone": "11944444444",
+      "materias": [
+        1
+      ],
+      "disponibilidade": {
+        "segunda": {
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        },
+        "terca": {
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        },
+        "quarta": {
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        },
+        "quinta": {
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        },
+        "sexta": {
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        }
+      }
+    },
+    {
+      "id": "4",
       "nome": "Carlos Oliveira",
       "senha": "prof123",
       "email": "professor@escola.com",
       "status": "Ativo",
       "cargo": "Professor",
-      "tipousuario": "PROF001",
+      "tipousuario": "PROF002",
       "telefone": "11977777777",
       "materias": [
         2
-      ]
+      ],
+      "disponibilidade": {
+        "segunda": {
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        },
+        "terca": {
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        },
+        "quarta": {
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        },
+        "quinta": {
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        },
+        "sexta": {
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        }
+      }
+    },
+    {
+      "id": "5",
+      "nome": "JoÃ£o Santos",
+      "senha": "joao123",
+      "email": "joao@escola.com",
+      "status": "Ativo",
+      "cargo": "Professor",
+      "tipousuario": "PROF003",
+      "telefone": "11955555555",
+      "materias": [
+        12
+      ],
+      "disponibilidade": {
+        "segunda": {
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        },
+        "terca": {
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        },
+        "quarta": {
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        },
+        "quinta": {
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        },
+        "sexta": {
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        }
+      }
+    },
+    {
+      "id": "6",
+      "nome": "ClÃ¡udio Nunes",
+      "senha": "claudio123",
+      "email": "claudio@escola.com",
+      "status": "Ativo",
+      "cargo": "Professor",
+      "tipousuario": "PROF004",
+      "telefone": "11930303030",
+      "materias": [
+        12
+      ],
+      "disponibilidade": {
+        "segunda": {
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        },
+        "terca": {
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        },
+        "quarta": {
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        },
+        "quinta": {
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        },
+        "sexta": {
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        }
+      }
+    },
+    {
+      "id": "7",
+      "nome": "PatrÃ­cia Matos",
+      "senha": "pat123",
+      "email": "patricia@escola.com",
+      "status": "Ativo",
+      "cargo": "Professor",
+      "tipousuario": "PROF005",
+      "telefone": "11923232323",
+      "materias": [
+        13
+      ],
+      "disponibilidade": {
+        "segunda": {
+          "13:15": "Sim",
+          "14:15": "Sim",
+          "15:15": "Sim",
+          "16:15": "Sim"
+        },
+        "terca": {
+          "13:15": "Sim",
+          "14:15": "Sim",
+          "15:15": "Sim",
+          "16:15": "Sim"
+        },
+        "quarta": {
+          "13:15": "Sim",
+          "14:15": "Sim",
+          "15:15": "Sim",
+          "16:15": "Sim"
+        },
+        "quinta": {
+          "13:15": "Sim",
+          "14:15": "Sim",
+          "15:15": "Sim",
+          "16:15": "Sim"
+        },
+        "sexta": {
+          "13:15": "Sim",
+          "14:15": "Sim",
+          "15:15": "Sim",
+          "16:15": "Sim"
+        }
+      }
+    },
+    {
+      "id": "8",
+      "nome": "Elaine Costa",
+      "senha": "elaine123",
+      "email": "elaine@escola.com",
+      "status": "Ativo",
+      "cargo": "Professor",
+      "tipousuario": "PROF006",
+      "telefone": "11920202020",
+      "materias": [
+        13
+      ],
+      "disponibilidade": {
+        "segunda": {
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        },
+        "terca": {
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        },
+        "quarta": {
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        },
+        "quinta": {
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        },
+        "sexta": {
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        }
+      }
+    },
+    {
+      "id": "9",
+      "nome": "Fernanda Dias",
+      "senha": "fer123",
+      "email": "fernanda@escola.com",
+      "status": "Ativo",
+      "cargo": "Professor",
+      "tipousuario": "PROF007",
+      "telefone": "11966666666",
+      "materias": [
+        7
+      ],
+      "disponibilidade": {
+        "segunda": {
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        },
+        "terca": {
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        },
+        "quarta": {
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        },
+        "quinta": {
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        },
+        "sexta": {
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        }
+      }
+    },
+    {
+      "id": "10",
+      "nome": "Rafael Moura",
+      "senha": "raf123",
+      "email": "rafael@escola.com",
+      "status": "Ativo",
+      "cargo": "Professor",
+      "tipousuario": "PROF008",
+      "telefone": "11977777770",
+      "materias": [
+        8
+      ],
+      "disponibilidade": {
+        "segunda": {
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        },
+        "terca": {
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        },
+        "quarta": {
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        },
+        "quinta": {
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        },
+        "sexta": {
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        }
+      }
+    },
+    {
+      "id": "11",
+      "nome": "Helena Brito",
+      "senha": "helena123",
+      "email": "helena@escola.com",
+      "status": "Ativo",
+      "cargo": "Professor",
+      "tipousuario": "PROF009",
+      "telefone": "11911111111",
+      "materias": [
+        9
+      ],
+      "disponibilidade": {
+        "segunda": {
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        },
+        "terca": {
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        },
+        "quarta": {
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        },
+        "quinta": {
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        },
+        "sexta": {
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        }
+      }
+    },
+    {
+      "id": "12",
+      "nome": "SÃ©rgio Prado",
+      "senha": "sergio123",
+      "email": "sergio@escola.com",
+      "status": "Ativo",
+      "cargo": "Professor",
+      "tipousuario": "PROF010",
+      "telefone": "11942424242",
+      "materias": [
+        10
+      ],
+      "disponibilidade": {
+        "segunda": {
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        },
+        "terca": {
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        },
+        "quarta": {
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        },
+        "quinta": {
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        },
+        "sexta": {
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        }
+      }
+    },
+    {
+      "id": "13",
+      "nome": "Carla Lima",
+      "senha": "carla123",
+      "email": "carla@escola.com",
+      "status": "Ativo",
+      "cargo": "Professor",
+      "tipousuario": "PROF011",
+      "telefone": "11990909090",
+      "materias": [
+        11
+      ],
+      "disponibilidade": {
+        "segunda": {
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        },
+        "terca": {
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        },
+        "quarta": {
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        },
+        "quinta": {
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        },
+        "sexta": {
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        }
+      }
+    },
+    {
+      "id": "14",
+      "nome": "Renata Costa",
+      "senha": "renata123",
+      "email": "renata@escola.com",
+      "status": "Ativo",
+      "cargo": "Professor",
+      "tipousuario": "PROF012",
+      "telefone": "11960606060",
+      "materias": [
+        5
+      ],
+      "disponibilidade": {
+        "segunda": {
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        },
+        "terca": {
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        },
+        "quarta": {
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        },
+        "quinta": {
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        },
+        "sexta": {
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        }
+      }
+    },
+    {
+      "id": "15",
+      "nome": "Bruno Almeida",
+      "senha": "bruno123",
+      "email": "bruno@escola.com",
+      "status": "Ativo",
+      "cargo": "Professor",
+      "tipousuario": "PROF013",
+      "telefone": "11945454545",
+      "materias": [
+        6
+      ],
+      "disponibilidade": {
+        "segunda": {
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        },
+        "terca": {
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        },
+        "quarta": {
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        },
+        "quinta": {
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        },
+        "sexta": {
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        }
+      }
+    },
+    {
+      "id": "16",
+      "nome": "Mariana Torres",
+      "senha": "mariana123",
+      "email": "mariana@escola.com",
+      "status": "Ativo",
+      "cargo": "Professor",
+      "tipousuario": "PROF014",
+      "telefone": "11981818181",
+      "materias": [
+        4
+      ],
+      "disponibilidade": {
+        "segunda": {
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        },
+        "terca": {
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        },
+        "quarta": {
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        },
+        "quinta": {
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        },
+        "sexta": {
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        }
+      }
+    },
+    {
+      "id": "17",
+      "nome": "Lilian Ramos",
+      "senha": "lilian123",
+      "email": "lilian@escola.com",
+      "status": "Ativo",
+      "cargo": "Professor",
+      "tipousuario": "PROF015",
+      "telefone": "11912121212",
+      "materias": [
+        3
+      ],
+      "disponibilidade": {
+        "segunda": {
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        },
+        "terca": {
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        },
+        "quarta": {
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        },
+        "quinta": {
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        },
+        "sexta": {
+          "08:15": "Sim",
+          "09:15": "Sim",
+          "10:15": "Sim",
+          "11:15": "Sim",
+          "12:15": "Sim"
+        }
+      }
     }
   ],
   "materia": [
     {
-      "id": "1",
-      "nome": "Matemática",
-      "descricao": "exemplo",
+      "id": 1,
+      "nome": "LÃ­ngua Portuguesa",
+      "descricao": "Disciplina de LÃ­ngua Portuguesa.",
       "status": "Ativo"
     },
     {
-      "id": "2",
-      "nome": "Português",
-      "descricao": "exemplo",
+      "id": 2,
+      "nome": "EducaÃ§Ã£o FÃ­sica",
+      "descricao": "PrÃ¡ticas corporais e teorias do movimento.",
       "status": "Ativo"
     },
     {
-      "id": "3",
+      "id": 3,
+      "nome": "Arte",
+      "descricao": "ExpressÃµes artÃ­sticas e visuais.",
+      "status": "Ativo"
+    },
+    {
+      "id": 4,
+      "nome": "LÃ­ngua Estrangeira",
+      "descricao": "Estudos de idioma estrangeiro.",
+      "status": "Ativo"
+    },
+    {
+      "id": 5,
+      "nome": "QuÃ­mica",
+      "descricao": "Estudo das transformaÃ§Ãµes quÃ­micas.",
+      "status": "Ativo"
+    },
+    {
+      "id": 6,
+      "nome": "FÃ­sica",
+      "descricao": "Estudo das leis fÃ­sicas.",
+      "status": "Ativo"
+    },
+    {
+      "id": 7,
+      "nome": "Biologia",
+      "descricao": "Estudo dos seres vivos.",
+      "status": "Ativo"
+    },
+    {
+      "id": 8,
       "nome": "Geografia",
-      "descricao": "exemplo",
+      "descricao": "Estudo do espaÃ§o geogrÃ¡fico.",
       "status": "Ativo"
     },
     {
-      "id": "4",
-      "nome": "História",
-      "descricao": "exemplo",
-      "status": "Inativo"
+      "id": 9,
+      "nome": "HistÃ³ria",
+      "descricao": "Estudos histÃ³ricos.",
+      "status": "Ativo"
+    },
+    {
+      "id": 10,
+      "nome": "Filosofia",
+      "descricao": "Pensamento crÃ­tico e filosofia.",
+      "status": "Ativo"
+    },
+    {
+      "id": 11,
+      "nome": "Sociologia",
+      "descricao": "Estudo da sociedade.",
+      "status": "Ativo"
+    },
+    {
+      "id": 12,
+      "nome": "MatemÃ¡tica",
+      "descricao": "Estudo da matemÃ¡tica.",
+      "status": "Ativo"
+    },
+    {
+      "id": 13,
+      "nome": "Eletivas",
+      "descricao": "Componentes curriculares eletivos.",
+      "status": "Ativo"
     }
   ],
   "turma": [
     {
       "id": "1",
       "nome": "Turma A",
-      "serie": "1º Ano",
+      "serie": "1Âº Ano",
       "qtdalunos": 30,
       "sala": "Sala 101",
-      "status": "Ativo"
+      "status": "Ativo",
+      "horario": {}
     },
     {
       "id": "2",
       "nome": "Turma B",
-      "serie": "2º Ano",
+      "serie": "2Âº Ano",
       "qtdalunos": 18,
       "sala": "Sala 308",
-      "status": "Ativo"
+      "status": "Ativo",
+      "horario": {}
     },
     {
       "id": "3",
       "nome": "Turma C",
-      "serie": "3º Ano",
+      "serie": "3Âº Ano",
       "qtdalunos": 36,
       "sala": "Sala 209",
-      "status": "Ativo"
+      "status": "Ativo",
+      "horario": {}
     },
     {
       "id": "4",
       "nome": "Turma D",
-      "serie": "4º Ano",
+      "serie": "4Âº Ano",
       "qtdalunos": 27,
       "sala": "Sala 203",
-      "status": "Inativo"
+      "status": "Inativo",
+      "horario": {}
     }
   ]
 }
